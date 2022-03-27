@@ -1,11 +1,8 @@
-
+import 'package:xidooalpha/modelos/negocios.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:xidooalpha/peticiones/pNegocios.dart';
 import 'package:flutter/material.dart';
-import 'package:xidooalpha/style.dart';
-import 'NegocioVentana.dart';
-//import negocio ventana
-
 void main() => runApp(Comercios());
-
 class Comercios extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,336 +17,110 @@ class Comercios extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<StatefulWidget> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          IconButton(
-            onPressed: (){},
-            icon: Icon(
-              Icons.search,
-              size: 27,
-              color: Colors.grey,
-            ),
-          )
-        ],
+      backgroundColor: Colors.grey.shade800,
+
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(150.0),
+        child: AppBar(
+          backgroundColor: Colors.yellowAccent.shade700,
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Negocios Salmantinos", style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.w700
-                    ),),              
-                  ],
-                ),
-                SizedBox(height: 10,),
-                Text("Los mejores negocios de la ciudad", style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 15,
-                ),),
-                SizedBox(height: 15,),
-                SingleChildScrollView(
-                  padding: EdgeInsets.only(bottom: 20),
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width*0.55,
-                        height: 350,
-                        padding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                          color: Colors.yellow[700], 
-                          boxShadow: [BoxShadow(spreadRadius: 0, offset: Offset(0,10), blurRadius: 0, color: Colors.amber.withOpacity(0.4))]
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage("images/nieve.png")
-                                  )
-                                ),),
-                            ),
-                            SizedBox(height: 15,),
-                            Text("Nieves Wini", style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700
-                            ),),
-                            SizedBox(height: 5,),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 17,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 17,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 17,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 17,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 17,
-                                ),        
-                                Text(" 25 Calificaciones", style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10
-                                ),)
-                              ],
-                            ),
-                            SizedBox(height: 10,),
-                            Text("Las mejores nieves salmantinas, con mas de 20 años en el mercado", style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13
-                            ),)
-                          ],
-                        ),
-                      ),
-                    SizedBox(width: 10,),
-                    Column(
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width*0.35,
-                          height: 165,
-                          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(30)),
-                            color: green,
-                            boxShadow: [BoxShadow(spreadRadius: 0, offset: Offset(0,10), blurRadius: 0, color: green.withOpacity(0.4))]                             
-                          ),
-                          child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage("images/fruta.png")
-                                  )
-                                ),),
-                            ),
-                            SizedBox(height: 15,),
-                            Text("Fruteria Don Beto", style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700
-                            ),),
-                            SizedBox(height: 5,),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 14,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 14,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 14,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 14,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.white,
-                                  size: 14,
-                                ),                                        
-                              ],
-                            ),
-                          ],
-                        ),
-                        ),
-                      SizedBox(height: 20,),
-                      Column(
-                        children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width*0.35,
-                            height: 165,
-                            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
-                              color: black,
-                              boxShadow: [BoxShadow(spreadRadius: 0, offset: Offset(0,10), blurRadius: 0, color: black.withOpacity(0.4))]                             
-                            ),
-                            child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage("images/comida.png")
-                                    )
-                                  ),),
-                              ),
-                              SizedBox(height: 15,),
-                              Text("Cocina Juanita", style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700
-                              ),),
-                              SizedBox(height: 5,),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.white,
-                                    size: 14,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.white,
-                                    size: 14,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.white,
-                                    size: 14,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.white,
-                                    size: 14,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.white,
-                                    size: 14,
-                                  ),                                        
-                                ],
-                              ),
-                            ],
-                          ),
-                          ),                      
-                        ],                      
-                      ),                      
-                      ],                      
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text("Lugares", style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700
-                    ),),
-                    SizedBox(width: 10,),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
-                        height: 0.5,
-                        color: Colors.grey
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(height: 20),
-                placesWidget("Hotel", "Shidoquil"),
-              ],
-            ),
-          ),
-        )
       ),
+      body: Container(
+        decoration: BoxDecoration(color: Colors.grey.shade800),
+        margin: EdgeInsets.only(bottom: 55.0, ),
+        child: getClients(context, listClient()),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.amberAccent,
+        onPressed: () { 
+            setState(() {_MyHomePageState();});
+        },
+        child: Icon(Icons.refresh),
+        
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
     );
   }
-  Row placesWidget(String img, String name)
-  {
-    return Row(
-      children: [
-        Container(
-          height: 100,
-          width: 100,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/restaurante.png")
-            ) 
-          ),
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("$name", style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600
-              ),),
-              Row(
-                children: [
-                  Icon(Icons.star, size: 20, color: Colors.orange,),
-                  Icon(Icons.star, size: 20, color: Colors.orange,),
-                  Icon(Icons.star, size: 20, color: Colors.orange,),
-                  Icon(Icons.star, size: 20, color: Colors.orange,),
-                  Icon(Icons.star, size: 20, color: Colors.orange,),
-                ],
-              ),
-              Text("Los mejores chilaquiles de la ciudad, solo usamos ingredientes de calidad!")
-            ],
-          ),
-        ),
-        InkWell(
-          onTap: openNegocioVentana,
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal:20, vertical: 10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(40)),
-              color: greenBtn
-            ),
-            child: Text("Ordena ahora", style: TextStyle(
-              color: Colors.white,
-              fontSize: 12,
-              fontWeight: FontWeight.w700          
-            ),),
-          ),
-        )
-      ],
+
+  Widget getClients(BuildContext context, Future<List<Client>> futureClient) {
+    return FutureBuilder(
+      future: futureClient,
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        switch (snapshot.connectionState) {
+          //En este case estamos a la espera de la respuesta, mientras tanto mostraremos el cargando...
+          case ConnectionState.waiting:
+            return Center(child: CircularProgressIndicator());
+
+          case ConnectionState.done:
+            if (snapshot.hasError)
+              return Container(
+                alignment: Alignment.center,
+                child: Center(
+                  child: Text('Error: ${snapshot.error}'),
+                ),
+              );
+            // print(snapshot.data);
+            return snapshot.data != null
+                ? clientList(snapshot.data)
+                : Container(
+                  
+                    alignment: Alignment.center,
+                    child: Center(
+                      child: Text('Sin Datos'),
+                    ),
+                  );
+          default:
+            return Text('Recarga la pantalla....!');
+        }
+      },
     );
   }
-  void openNegocioVentana()
-  {
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>NegocioVentana()));
-  }//abrir otra ventana
+
+  Widget clientList(List<Client> clients) {
+    return ListView.builder(
+      itemCount: clients.length,
+      itemBuilder: (context, index) {
+        return 
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.black12),
+                boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          spreadRadius: 3,
+                          blurRadius: 7,
+                        ),
+                      ],
+                ),        
+                margin: EdgeInsets.only(bottom: 15.0, left: 10.0, right: 10.0, top: 10.0),      
+              child: ListTile(
+                onTap: () {
+                },
+                onLongPress: () {
+                },
+                title: Text(clients[index].name ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
+                subtitle: Text(clients[index].phone ?? ''),
+                trailing: Icon(Icons.heart_broken, color: Colors.red,), //?? verifica que no sea nulo, en caso de que sea la app se detiene
+                leading: CircleAvatar(
+                  backgroundColor: Colors.black,
+                  child: Text(clients[index].name.substring(0, 1) ?? true), //solo muestra una letra
+                ),
+            ),
+            );
+      },
+      
+    );
+  }
+
 }
