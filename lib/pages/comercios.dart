@@ -2,6 +2,7 @@ import 'package:xidooalpha/modelos/negocios.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:xidooalpha/peticiones/pNegocios.dart';
 import 'package:flutter/material.dart';
+import 'package:xidooalpha/pages/vistaNegocio.dart';
 void main() => runApp(Comercios());
 class Comercios extends StatelessWidget {
   @override
@@ -97,15 +98,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 border: Border.all(color: Colors.black12),
                 boxShadow: [
                         BoxShadow(
-                          color: Colors.black12,
-                          spreadRadius: 3,
-                          blurRadius: 7,
+                          color: Colors.black,
+                          spreadRadius: 2,
+                          blurRadius: 6,
+                          offset: Offset(
+                            -5.0,
+                            5.0
+                            ), //(dy, dx)
                         ),
                       ],
                 ),        
                 margin: EdgeInsets.only(bottom: 15.0, left: 10.0, right: 10.0, top: 10.0),      
               child: ListTile(
                 onTap: () {
+                              Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => ModifyContact(clients[index])))
+                .then((newContact) {
+              setState(() {
+              });
+            });
                 },
                 onLongPress: () {
                 },
