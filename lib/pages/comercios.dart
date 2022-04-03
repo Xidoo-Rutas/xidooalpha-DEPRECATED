@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:xidooalpha/peticiones/pNegocios.dart';
 import 'package:flutter/material.dart';
 import 'package:xidooalpha/pages/vistaNegocio.dart';
+
 void main() => runApp(Comercios());
 class Comercios extends StatelessWidget {
   @override
@@ -18,7 +19,6 @@ class Comercios extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() => _MyHomePageState();
 }
@@ -28,12 +28,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade800,
-
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150.0),
-        child: AppBar(
+      appBar: AppBar(
+          toolbarHeight: 100,
           backgroundColor: Colors.yellowAccent.shade700,
-      ),
+          shadowColor: Colors.black,
       ),
       body: Container(
         decoration: BoxDecoration(color: Colors.grey.shade800),
@@ -111,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: EdgeInsets.only(bottom: 15.0, left: 10.0, right: 10.0, top: 10.0),      
               child: ListTile(
                 onTap: () {
-                              Navigator.push(
+                    Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (_) => ModifyContact(clients[index])))
@@ -123,8 +121,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 onLongPress: () {
                 },
                 title: Text(clients[index].name ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
-                subtitle: Text(clients[index].phone ?? ''),
-                trailing: Icon(Icons.heart_broken, color: Colors.red,), //?? verifica que no sea nulo, en caso de que sea la app se detiene
+                subtitle: Text(clients[index].phone ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
+                trailing: Icon(Icons.heart_broken, color: Colors.red,), 
                 leading: CircleAvatar(
                   backgroundColor: Colors.black,
                   child: Text(clients[index].name.substring(0, 1) ?? true), //solo muestra una letra
