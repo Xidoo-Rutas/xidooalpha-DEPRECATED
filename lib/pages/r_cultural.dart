@@ -8,7 +8,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 const MAPBOX_ACCESS_TOKEN =
 'pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ';
 const MAPBOX_STYLE = 'mapbox/dark-v10';
-const MARKER_COLOR = Color.fromARGB(255, 255, 230, 0);
+const MARKER_COLOR = Color.fromARGB(255, 247, 204, 12);
+//const MARKER_SIZE_EXPANDED = 50;
+//const MARKER_SIZE_SHRINKED = 38.0;
+
 
 final _myLocation = LatLng(20.5739, -101.213);
 
@@ -23,6 +26,7 @@ class _RculturalState extends State<Rcultural> {
 
 
   final _pageController = PageController();
+  int _selectedIndex = 0;
 
 
 List<Marker> _buildMaarkers(){
@@ -31,15 +35,18 @@ List<Marker> _buildMaarkers(){
     final mapItem = mapMaker[i];
     _markerList.add(
       Marker(
-        height: 40,
-        width: 40,
+        height: 50,
+        width: 50,
         point: mapItem.location, 
         builder: (_){
       return GestureDetector(
         onTap: (){
+          _pageController.animateToPage(i, duration: const Duration(milliseconds: 500), curve: Curves.linearToEaseOut);
           print('Selected ${mapItem.title}');
         },
-        child: Image.asset('./images/point.png'),
+        child: _LocationMarker(
+          selected: _selectedIndex == i,
+        ),
       );
     },),);
   }
@@ -50,16 +57,16 @@ List<Marker> _buildMaarkers(){
   Widget build(BuildContext context) {
     final _markers = _buildMaarkers();
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text('Ruta Cutural'),
-      ),
+      ),*/
       body: Stack(
         children: [
           FlutterMap
           (options: MapOptions(
             center: LatLng(20.5739, -101.1957),
             minZoom: 5,
-            maxZoom: 20,
+            maxZoom: 25,
             zoom: 13,
           ),
           nonRotatedLayers:[
@@ -88,8 +95,11 @@ List<Marker> _buildMaarkers(){
             left: 0,
             right: 0,
             bottom: 70,
-            height: MediaQuery.of(context).size.height * 0.3,
+            height: MediaQuery.of(context).size.height * 0.2,
             child: PageView.builder(
+              controller: _pageController,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: mapMaker.length,
               itemBuilder: (context, index) {
               final item = mapMaker[index];
               return _MapItemDetails(
@@ -104,31 +114,98 @@ List<Marker> _buildMaarkers(){
   }
 }
 
+class _LocationMarker extends StatelessWidget {
+  const _LocationMarker ({ Key? key, this.selected = false }) : super(key: key);
+
+  final bool selected;
+  @override
+  Widget build(BuildContext context) {
+    //final size = selected ? MARKER_SIZE_EXPANDED : MARKER_SIZE_SHRINKED;
+    return Center(
+      child: AnimatedContainer(
+        height: 30,
+        width: 30,
+        duration: const Duration(milliseconds: 400),
+        child: Image.asset('./images/point.png'),
+        ),
+    );
+  }
+}
+
 class _MiLocacion extends StatelessWidget {
   const _MiLocacion({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: MARKER_COLOR,
-                        shape: BoxShape.circle,
-                      ),
+                      height: 0,
+                      width: 0,
+                      //decoration: BoxDecoration(
+                        //color: MARKER_COLOR,
+                        //shape: BoxShape.circle,
+                      //),
                     );
   }
 }
 
 class _MapItemDetails extends StatelessWidget {
-  const _MapItemDetails({ Key? key, required MapMarker mapMarker, }) : super(key: key);
+  const _MapItemDetails({ 
+    Key? key, 
+    required this.mapMarker,
+     }) : super(key: key);
+
+    final MapMarker mapMarker;
 
   @override
   Widget build(BuildContext context) {
+    final _styleTitle = TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold );
+    final _styleAdress = TextStyle(color: Color.fromARGB(255, 59, 59, 59), fontSize: 13);
     return Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: Container(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        margin: EdgeInsets.zero,
         color: Colors.white,
+        child: Column(
+          //crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(5),
+                    child: 
+                    Image.asset(mapMarker.image),
+                    
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            mapMarker.title, 
+                            style: _styleTitle,
+                            textAlign: TextAlign.center,
+                            ),
+                          Text(
+                            mapMarker.address, 
+                            style: _styleAdress,
+                            textAlign: TextAlign.center,
+                            ),
+                            /*MaterialButton(
+                              padding: EdgeInsets.zero,
+                              onPressed: () => null, 
+                              color: MARKER_COLOR,
+                              elevation: 6,
+                              child: Text('LLAMAR', style: TextStyle(fontWeight: FontWeight.bold),),
+                              )*/
+                        ],
+                      ),
+                      ),
+              ]),
+            ),
+            
+          ],
+        ),
       ),
     );
   }
