@@ -1,11 +1,6 @@
 import 'package:xidooalpha/modelos/negocios.dart';
-import 'package:xidooalpha/peticiones/pNegocios.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:xidooalpha/pantallas/text_box.dart';
-var icono = Icon(Icons.heart_broken_rounded);
-
-
 
 class ModifyContact extends StatefulWidget {
   final Client _client;
@@ -18,6 +13,10 @@ class _ModifyContact extends State<ModifyContact> {
   late TextEditingController controllerName;
   late TextEditingController controllerSurname;
   late TextEditingController controllerPhone;
+  late TextEditingController controllerAddress;
+  late TextEditingController controllerDescripcion1;
+  late TextEditingController controllerDescripcion2;
+  late TextEditingController controllerEmail;
   late String id;
 
   @override
@@ -26,6 +25,10 @@ class _ModifyContact extends State<ModifyContact> {
     controllerName = new TextEditingController(text: c.name);
     controllerSurname = new TextEditingController(text: c.surname);
     controllerPhone = new TextEditingController(text: c.phone);
+    controllerAddress = new TextEditingController(text: c.addres);
+    controllerDescripcion1 = new TextEditingController(text: c.descriptionNegocio);
+    controllerDescripcion2 = new TextEditingController(text: c.descripcionNegocio2);
+    controllerEmail = new TextEditingController(text: c.correoElectronico);
     id = c.id;
     super.initState();
   }
@@ -160,8 +163,8 @@ class _ModifyContact extends State<ModifyContact> {
           ),
           Container(
             margin: EdgeInsets.only(top: 10),
-            child: const Text(
-              "aqui va el correo electronico",
+            child: Text(
+              "aqui va el correo electronico : " + controllerEmail.text,
               textAlign: TextAlign.center,
               ),
           ),
