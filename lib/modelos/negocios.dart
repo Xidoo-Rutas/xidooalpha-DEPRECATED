@@ -1,7 +1,7 @@
 class Client {
   var id;
   var name;
-  var surname;
+  var categoria;
   var phone;
   var addres;
   var descriptionNegocio;
@@ -12,7 +12,7 @@ class Client {
     {
       this.id, 
       this.name, 
-      this.surname, 
+      this.categoria, 
       this.phone, 
       this.addres, 
       this.descriptionNegocio,
@@ -20,14 +20,13 @@ class Client {
       this.correoElectronico
     }
       );
-
   factory Client.fromJson(Map<String, dynamic> json) {
     return Client(
         id: json['_id'],
-        name: json['nombre'],
-        surname: json['apellido'],
-        phone: json['telefono'],
-        addres: json ['Direccion'],
+        name: json['nombre_negocio'],
+        categoria: json['categoria'],
+        phone: json['Num_telefonico'],
+        addres: json['Direccion'],
         descriptionNegocio: json['descripccion_negocio'],
         descripcionNegocio2: json['descripcion_dos'],
         correoElectronico: json['Correo']);

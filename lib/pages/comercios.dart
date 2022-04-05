@@ -121,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onLongPress: () {
                 },
                 title: Text(clients[index].name ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
-                subtitle: Text(clients[index].phone ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
+                subtitle: Text(clients[index].name ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
                 trailing: Icon(Icons.heart_broken, color: Colors.red,), 
                 leading: CircleAvatar(
                   backgroundColor: Colors.black,

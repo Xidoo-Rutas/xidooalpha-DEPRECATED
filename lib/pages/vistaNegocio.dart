@@ -11,7 +11,7 @@ class ModifyContact extends StatefulWidget {
 
 class _ModifyContact extends State<ModifyContact> {
   late TextEditingController controllerName;
-  late TextEditingController controllerSurname;
+  late TextEditingController controllercategoria;
   late TextEditingController controllerPhone;
   late TextEditingController controllerAddress;
   late TextEditingController controllerDescripcion1;
@@ -23,11 +23,11 @@ class _ModifyContact extends State<ModifyContact> {
   void initState() {
     Client c = widget._client;
     controllerName = new TextEditingController(text: c.name);
-    controllerSurname = new TextEditingController(text: c.surname);
+    controllercategoria = new TextEditingController(text: c.categoria);
     controllerPhone = new TextEditingController(text: c.phone);
     controllerAddress = new TextEditingController(text: c.addres);
     controllerDescripcion1 = new TextEditingController(text: c.descriptionNegocio);
-    controllerDescripcion2 = new TextEditingController(text: c.descripcionNegocio2);
+    //controllerDescripcion2 = new TextEditingController(text: c.descripcionNegocio2);
     controllerEmail = new TextEditingController(text: c.correoElectronico);
     id = c.id;
     super.initState();
@@ -66,7 +66,7 @@ class _ModifyContact extends State<ModifyContact> {
             margin: EdgeInsets.only(top: 20),
             child: Container(
               child: Text(
-                controllerPhone.text, //de la base de datos
+                controllercategoria.text, //de la base de datos
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0xffF24C4C),
@@ -80,16 +80,7 @@ class _ModifyContact extends State<ModifyContact> {
             margin: EdgeInsets.only(top: 20, left: 40, right: 40),
             child: Container(
                 child: Text(
-                controllerPhone.text + controllerPhone.text + controllerPhone.text + controllerPhone.text + controllerPhone.text+ controllerPhone.text
-                + controllerPhone.text+ controllerPhone.text+ controllerPhone.text
-                + controllerPhone.text+ controllerPhone.text+ controllerPhone.text
-                + controllerPhone.text+ controllerPhone.text+ controllerPhone.text
-                + controllerPhone.text+ controllerPhone.text+ controllerPhone.text
-                + controllerPhone.text+ controllerPhone.text+ controllerPhone.text
-                + controllerPhone.text+ controllerPhone.text+ controllerPhone.text
-                + controllerPhone.text+ controllerPhone.text+ controllerPhone.text
-                + controllerPhone.text+ controllerPhone.text+ controllerPhone.text
-                + controllerPhone.text+ controllerPhone.text+ controllerPhone.text,
+              controllerDescripcion1.text,
                 textAlign: TextAlign.center,
               ),
               )
@@ -129,8 +120,8 @@ class _ModifyContact extends State<ModifyContact> {
           ),
           Container(
             margin: EdgeInsets.only(top: 10),
-            child: const Text(
-              "aqui va la direccion",
+            child: Text(
+              controllerAddress.text,
               textAlign: TextAlign.center,
               ),
           ),
@@ -146,8 +137,8 @@ class _ModifyContact extends State<ModifyContact> {
           ),
           Container(
             margin: EdgeInsets.only(top: 10),
-            child: const Text(
-              "aqui va el telefono",
+            child: Text(
+              controllerPhone.text,
               textAlign: TextAlign.center,
               ),
           ),
