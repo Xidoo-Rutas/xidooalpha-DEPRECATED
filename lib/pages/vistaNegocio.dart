@@ -27,7 +27,7 @@ class _ModifyContact extends State<ModifyContact> {
     controllerPhone = new TextEditingController(text: c.phone);
     controllerAddress = new TextEditingController(text: c.addres);
     controllerDescripcion1 = new TextEditingController(text: c.descriptionNegocio);
-    //controllerDescripcion2 = new TextEditingController(text: c.descripcionNegocio2);
+    controllerDescripcion2 = new TextEditingController(text: c.descripcionNegocio2);
     controllerEmail = new TextEditingController(text: c.correoElectronico);
     id = c.id;
     super.initState();
@@ -97,6 +97,16 @@ class _ModifyContact extends State<ModifyContact> {
             ),
           ),
           Container(
+            margin: EdgeInsets.only(top: 20, left: 40, right: 40),
+            child: Container(
+              margin: EdgeInsets.only(top: 20),
+                child: Text(
+                controllerDescripcion2.text,
+                textAlign: TextAlign.center,
+              ),
+              )
+            ),
+          Container(
             margin: EdgeInsets.only(top: 20),
             child: const Text(
                     "Datos del negocio", //de la base de datos
@@ -155,7 +165,7 @@ class _ModifyContact extends State<ModifyContact> {
           Container(
             margin: EdgeInsets.only(top: 10),
             child: Text(
-              "aqui va el correo electronico : " + controllerEmail.text,
+              controllerEmail.text,
               textAlign: TextAlign.center,
               ),
           ),
