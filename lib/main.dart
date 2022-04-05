@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:xidooalpha/pages/anuncios.dart';
 import 'package:xidooalpha/pages/comercios.dart';
-import 'package:xidooalpha/pages/perfil.dart';
 import 'package:xidooalpha/pages/r_cultural.dart';
 import 'package:xidooalpha/pages/rutas.dart';
 
@@ -15,16 +14,14 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final navigationKey = GlobalKey<CurvedNavigationBarState>();
-  int index = 2;
+  int index = 1;
   final pantallas = [
-    Perfil(),
     Comercios(),
     Rutas(),
     Rcultural(),
     Anuncios(),
   ];
   final items = <Widget>[
-    const Icon(Icons.account_circle_rounded, size: 30),
     const Icon(Icons.shopping_basket, size: 30),
     Icon(Icons.directions_bus, size: 30),
     Icon(Icons.museum, size: 30),
