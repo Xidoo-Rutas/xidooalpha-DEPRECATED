@@ -4,8 +4,9 @@ class Client {
   var categoria;
   var phone;
   var addres;
+  var eslogan;
   var descriptionNegocio;
-  var descripcionNegocio2;
+  var descriptionNegocio2;
   var correoElectronico;
 
   Client(
@@ -14,9 +15,10 @@ class Client {
       this.name, 
       this.categoria, 
       this.phone, 
-      this.addres, 
+      this.addres,
+      this.eslogan, 
       this.descriptionNegocio,
-      this.descripcionNegocio2,
+      this.descriptionNegocio2,
       this.correoElectronico
     }
       );
@@ -27,8 +29,9 @@ class Client {
         categoria: json['categoria'],
         phone: json['Num_telefonico'],
         addres: json['Direccion'],
+        eslogan: json['Eslogan'],
         descriptionNegocio: json['descripccion_negocio'],
-        descripcionNegocio2: json['descripcion_dos'],
+        descriptionNegocio2: json['descripccion_dos'],
         correoElectronico: json['Correo']);
   }
 }
