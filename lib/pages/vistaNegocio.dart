@@ -14,8 +14,9 @@ class _ModifyContact extends State<ModifyContact> {
   late TextEditingController controllercategoria;
   late TextEditingController controllerPhone;
   late TextEditingController controllerAddress;
+  late TextEditingController controllerEslogan;
   late TextEditingController controllerDescripcion1;
-  late TextEditingController controllerDescripcion2;
+  late TextEditingController controllerDesc2;
   late TextEditingController controllerEmail;
   late String id;
 
@@ -26,8 +27,9 @@ class _ModifyContact extends State<ModifyContact> {
     controllercategoria = new TextEditingController(text: c.categoria);
     controllerPhone = new TextEditingController(text: c.phone);
     controllerAddress = new TextEditingController(text: c.addres);
+    controllerEslogan = new TextEditingController(text: c.eslogan);
     controllerDescripcion1 = new TextEditingController(text: c.descriptionNegocio);
-    controllerDescripcion2 = new TextEditingController(text: c.descripcionNegocio2);
+    controllerDesc2 = new TextEditingController(text: c.descriptionNegocio2);
     controllerEmail = new TextEditingController(text: c.correoElectronico);
     id = c.id;
     super.initState();
@@ -58,15 +60,31 @@ class _ModifyContact extends State<ModifyContact> {
           )
         ],
       ),
-      body: Container(
+      body: 
+
+      Container(
         margin: EdgeInsets.only(bottom: 70.0),
         child:ListView(
         children: [
+          // Container(
+          //   margin: EdgeInsets.only(top: 10),
+          //   child: Container(
+          //     child: Text(
+          //       controllerName.text, //de la base de datos
+          //       textAlign: TextAlign.center,
+          //       style: TextStyle(
+          //         color: Color(0xff242424),
+          //         fontSize: 12,
+          //         fontWeight: FontWeight.w400
+          //       ),
+          //       ),
+          //   ),
+          // ),
           Container(
             margin: EdgeInsets.only(top: 20),
             child: Container(
               child: Text(
-                controllercategoria.text, //de la base de datos
+                controllerEslogan.text, //de la base de datos
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0xffF24C4C),
@@ -97,11 +115,10 @@ class _ModifyContact extends State<ModifyContact> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 20, left: 40, right: 40),
+            margin: EdgeInsets.only(top: 20),
             child: Container(
-              margin: EdgeInsets.only(top: 20),
                 child: Text(
-                controllerDescripcion2.text,
+                controllerDesc2.text,
                 textAlign: TextAlign.center,
               ),
               )
@@ -118,6 +135,30 @@ class _ModifyContact extends State<ModifyContact> {
                     ),
                     ),
                 ),
+          Container(
+            margin: EdgeInsets.only(top: 20),
+            child: const Text(
+              "categoria del negocio",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.bold
+                ),
+              ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 10),
+            child: Container(
+              child: Text(
+                controllercategoria.text, //de la base de datos
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xff242424),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400
+                ),
+                ),
+            ),
+          ),
           Container(
             margin: EdgeInsets.only(top: 10),
             child: const Text(
