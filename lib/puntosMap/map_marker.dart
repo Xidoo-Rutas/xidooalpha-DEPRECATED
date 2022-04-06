@@ -31,7 +31,7 @@ final _locations = [
 final mapMaker = [
   MapMarker(
     image: './images/point.png', 
-    title: 'Seleccione locacion', 
+    title: 'Seleccione locación', 
     address: '', 
     location: _locations[0],
     ),
@@ -68,19 +68,19 @@ final mapMaker = [
     MapMarker(
     image: './images/dsur.jpg', 
     title: 'Deportiva Sur', 
-    address: 'Blvrd Valle de Santiago, Benito Juárez, 36790 Salamanca, Gto.', 
+    address: 'Blvd Valle de Santiago, Benito Juárez, 36790 Salamanca, Gto.', 
     location: _locations[6],
     ),
     MapMarker(
     image: './images/mamor.jpg', 
-    title: 'Campo de Beisbol Ing. Antonio M. Amor', 
+    title: 'Campo de Béisbol Ing. Antonio M. Amor', 
     address: 'Ébano 107, Bellavista, 36730 Salamanca, Gto.', 
     location: _locations[7],
     ),
     MapMarker(
     image: './images/sanagus.jpg', 
     title: 'Templo de San Agustín', 
-    address: 'Andrés Delgado, Centro, 36700 Salamanca, Gto.', 
+    address: 'C. Revolución 177, Centro, 36700 Salamanca, Gto.', 
     location: _locations[8],
     ),
 ];

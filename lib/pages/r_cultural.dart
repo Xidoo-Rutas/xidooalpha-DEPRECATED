@@ -5,9 +5,9 @@ import 'package:xidooalpha/puntosMap/map_marker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
-const MAPBOX_ACCESS_TOKEN =
-'pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ';
-const MAPBOX_STYLE = 'mapbox/dark-v10';
+//const MAPBOX_ACCESS_TOKEN =
+//'pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ';
+//const MAPBOX_STYLE = 'mapbox/dark-v10';
 const MARKER_COLOR = Color.fromARGB(255, 247, 204, 12);
 //const MARKER_SIZE_EXPANDED = 50;
 //const MARKER_SIZE_SHRINKED = 38.0;
@@ -71,10 +71,10 @@ List<Marker> _buildMaarkers(){
           ),
           nonRotatedLayers:[
             TileLayerOptions(
-              urlTemplate: 'https://api.mapbox.com/styles/v1/tadeovega/cktszafdy0uc917m8gylcaft6/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}',
+              urlTemplate: 'https://api.mapbox.com/styles/v1/gaelrazo/cl1jvvjdk001214pk6b0fi5de/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZ2FlbHJhem8iLCJhIjoiY2t3NDRjc2VhMGhwdTJxbnRxb3Q3d2tzYyJ9.P9i8yaxdMsVFk36Mg2h6DA',
               additionalOptions: {
-                'accessToken': MAPBOX_ACCESS_TOKEN,
-                'id': MAPBOX_STYLE
+                'accessToken': 'pk.eyJ1IjoiZ2FlbHJhem8iLCJhIjoiY2t3NDRjc2VhMGhwdTJxbnRxb3Q3d2tzYyJ9.P9i8yaxdMsVFk36Mg2h6DA',
+                'id': 'mapbox/light-v10'
               },
             ),
             MarkerLayerOptions(
