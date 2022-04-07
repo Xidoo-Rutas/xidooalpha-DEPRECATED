@@ -10,16 +10,11 @@ import 'package:xidooalpha/routes/ruta10/rutadiez.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
 
-
 class Rutas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text('Rutas'),
-      ),
       body:
       Stack(
         children: [
@@ -41,7 +36,7 @@ class Rutas extends StatelessWidget {
               Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.564555, -101.220069),
+                point: latLng.LatLng(20.564555, -101.220169),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
