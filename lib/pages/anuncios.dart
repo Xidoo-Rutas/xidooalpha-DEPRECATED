@@ -1,5 +1,4 @@
 import 'package:xidooalpha/modelos/noticias.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:xidooalpha/peticiones/pAnuncios.dart';
 import 'package:flutter/material.dart';
 import 'package:xidooalpha/pages/vistaAnuncios.dart';
@@ -27,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellowAccent.shade400,
+      //backgroundColor: Colors.white54,
       appBar: AppBar(
           backgroundColor: Colors.yellowAccent.shade700,
           shadowColor: Colors.black,
@@ -41,14 +40,15 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         decoration: BoxDecoration(
-              gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xff242424),
-                Colors.yellowAccent.shade400,
-              ],
-            )
+          color: Colors.white54
+           //   gradient: LinearGradient(
+          //    begin: Alignment.topCenter,
+          //    end: Alignment.bottomCenter,
+          //    colors: [
+          //      Color(0xff242424),
+          //      Colors.yellowAccent.shade400,
+          //    ],
+          //  )
           ),
         margin: EdgeInsets.only(bottom: 55.0, ),
         child: getClients(context, listClient()),

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' as latLng;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:xidooalpha/pages/perfil.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
@@ -16,10 +12,10 @@ class Rutas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text('Rutas'),
-      ),
+     // appBar: AppBar(
+     //   backgroundColor: Colors.blue,
+     //   title: const Text('Rutas'),
+     // ),
       body:
       Stack(
         children: [
