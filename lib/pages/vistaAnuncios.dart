@@ -48,19 +48,28 @@ class _MostrarNoticia extends State<MostrarNoticia> {
             ),
             margin: EdgeInsets.only(top: 20, bottom: 20, left: 25, right: 25),
             child: Container(
-              child: Text(titulo.text)
+              child: Text(titulo.text) //titulo
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            child: Container(
-              child: Container(
-                margin: const EdgeInsets.only(left: 50, right: 50),
-                child: Image.network(
-              'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Expanded(child: Image.network(
+                'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'
+                )
               ),
-              )
-            ),
+              Expanded(flex:2, 
+              child: Image.network(
+                'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'
+                )
+              ),
+              Expanded(
+                child: Image.network(
+                  'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'
+                  )
+                ),
+            ],
           ),
           Container(
             margin: EdgeInsets.only(top: 20),
