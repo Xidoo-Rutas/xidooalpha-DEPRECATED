@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:xidooalpha/pages/rutas.dart';
+import 'package:xidooalpha/routes/ruta6/ruta6mapa.dart';
 
 
 class Rutaseis_a_sardinas extends StatelessWidget {
@@ -60,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           )
         ],
-        title: const Text('Ruta seis'),
+        title: const Text('Ruta 6'),
       ),
       body: Column(
         children: [
@@ -98,38 +99,42 @@ class _HomeScreenState extends State<HomeScreen> {
               onStepTapped: (step) => _stepTapped(step),
               onStepContinue: _stepContinue,
               onStepCancel: _stepCancel,
+              controlsBuilder: (context,_){
+                return Row(
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: (){
+                        _stepContinue();
+                      },
+                      child: const Text('Siguiente ruta'),
+                    ),
+                    TextButton(
+                      onPressed: (){
+                        _stepCancel();
+                      },
+                      child: const Text('Ruta anterior'),
+                    ),
+                  ],
+                );
+              },
               steps: [
-                // The first step: Name
-                Step(
-                  title: const Text('Parada Estancias'),
+                  Step(
+                  title: const Text('Ecoparque'),
                   content: Column(
                     children: [
-                      Text('Estancias encantadas con esquina boulevard San Pedro')
+                      Text('Irapuato 201-211, Jardines de Guanajuato.')
                     ],
                   ),
                   isActive: _currentStep >= 0,
                   state: _currentStep >= 1
                       ? StepState.disabled
                       : StepState.complete,
-                ),
-                Step(
-                  title: const Text('San Pedro'),
-                  content: Column(
-                    children: [
-                      Text('Esquina San Xavier con Esquina Rinconada San Marcos')
-                    ],
-                  ),
-                  isActive: _currentStep >= 0,
-                  state: _currentStep >= 1
-                      ? StepState.disabled
-                      : StepState.complete,
-                ),
-                // The third step: Verify phone number
-                Step(
-                  title: const Text('Seguro Zona Centro'),
+                ),                
+                                Step(
+                  title: const Text('Mercado'),
                   content: Column(
                     children: <Widget>[
-                      Text('Zona Centro, esquina con el seguro IMMS')
+                      Text('Sanchez Torrado 423B, Centro.')
                     ],
                   ),
                   isActive: _currentStep >= 0,
@@ -138,10 +143,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       : StepState.complete,
                 ),
                 Step(
-                  title: const Text('San Pedro'),
+                  title: const Text('Walmart '),
                   content: Column(
                     children: [
-                      Text('Esquina San Xavier con Esquina Rinconada San Marcos')
+                      Text('Blvd. Manuel J. Clouthier, Aztlan.')
+                    ],
+                  ),
+                  isActive: _currentStep >= 0,
+                  state: _currentStep >= 1
+                      ? StepState.disabled
+                      : StepState.complete,
+                ),
+                Step(
+                  title: const Text('Sardinas'),
+                  content: Column(
+                    children: [
+                      Text('Calle 5 de Mayo, Centro.')
                     ],
                   ),
                   isActive: _currentStep >= 0,
@@ -151,6 +168,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 0, 20, 20),
+            child: Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+              backgroundColor: Colors.black87,   
+              
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Ruta6mapa())
+                );
+              },
+              child: Icon(Icons.arrow_back, color: Colors.white,),
+            ),
+           ),
           ),
         ],
       ),

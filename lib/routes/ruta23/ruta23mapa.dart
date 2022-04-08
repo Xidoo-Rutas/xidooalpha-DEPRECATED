@@ -10,6 +10,8 @@ import 'package:xidooalpha/routes/ruta10/rutadiez.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
 import 'package:xidooalpha/routes/ruta12/rutadoce_a_conalep.dart';
 import 'package:xidooalpha/routes/ruta12/rutadoce_a_seguro.dart';
+import 'package:xidooalpha/routes/ruta23/rutaveintitres_a_la_cruz.dart';
+import 'package:xidooalpha/routes/ruta23/rutaveintitres_a_la_uts.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
 
 class Ruta23mapa extends StatelessWidget {
@@ -17,10 +19,6 @@ class Ruta23mapa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: const Text('Ruta 23'),
-      ),
       body:
       Stack(
         children: [
@@ -55,7 +53,7 @@ class Ruta23mapa extends StatelessWidget {
                       onPressed: (){
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Rutadoce_a_seguro())
+                          MaterialPageRoute(builder: (context) => Rutaveintitres_a_la_uts())
                         );
                       },
                     ),
@@ -78,7 +76,7 @@ class Ruta23mapa extends StatelessWidget {
                       onPressed: (){
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Rutadoce_a_conalep())
+                          MaterialPageRoute(builder: (context) => Rutaveintitres_a_la_cruz())
                         );
                       },
                     ),
@@ -87,7 +85,7 @@ class Ruta23mapa extends StatelessWidget {
               Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.570404, -101.221389),
+                point: latLng.LatLng(20.576395,-101.2317649),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -96,7 +94,6 @@ class Ruta23mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Blvd San Pedro',
                       onPressed: (){
                         
                       },
@@ -106,7 +103,7 @@ class Ruta23mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.576084, -101.215045),
+                point: latLng.LatLng(20.5820374,-101.2305257),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -115,7 +112,6 @@ class Ruta23mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Seguro',
                       onPressed: (){
                         
                       },
@@ -125,7 +121,7 @@ class Ruta23mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.573878, -101.209779),
+                point: latLng.LatLng(20.576076, -101.215053),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -134,7 +130,6 @@ class Ruta23mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Morelos con cazadora',
                       onPressed: (){
                         
                       },
@@ -144,7 +139,7 @@ class Ruta23mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.573069, -101.207361),
+                point: latLng.LatLng(20.5739148,-101.2096733),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -153,7 +148,6 @@ class Ruta23mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Artes con Morelos',
                       onPressed: (){
 
                       },
@@ -163,7 +157,7 @@ class Ruta23mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.569919, -101.197927),
+                point: latLng.LatLng(20.5739148,-101.2096733),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -172,7 +166,6 @@ class Ruta23mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Centro, Ignacio Zaragoza con Calle Miguel Hidalgo',
                       onPressed: (){
 
                       },
@@ -182,7 +175,7 @@ class Ruta23mapa extends StatelessWidget {
               Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.566920, -101.198884),
+                point: latLng.LatLng(20.571481, -101.202975),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -191,7 +184,6 @@ class Ruta23mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Centro, Cancha Deportiva El Árbol',
                       onPressed: (){
 
                       },
@@ -201,7 +193,7 @@ class Ruta23mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.543408, -101.204893),
+                point: latLng.LatLng(20.5722945,-101.1984565),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -210,7 +202,6 @@ class Ruta23mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Blvrd Valle de Santiago',
                       onPressed: (){
 
                       },
@@ -220,7 +211,8 @@ class Ruta23mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.563076, -101.200843),
+                point: latLng.LatLng(20.5668118,-101.1853871
+),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -229,7 +221,23 @@ class Ruta23mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Valle de santiago',
+                      onPressed: (){
+                      },
+                    ),
+                  ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.5699846,-101.1948957),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
                       onPressed: (){
 
                       },
@@ -239,7 +247,7 @@ class Ruta23mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.550793, -101.203869),
+                point: latLng.LatLng(20.5707713,-101.1972094),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -248,7 +256,6 @@ class Ruta23mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Deportiva',
                       onPressed: (){
 
                       },
@@ -258,7 +265,7 @@ class Ruta23mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.543408, -101.204893),
+                point: latLng.LatLng(20.5717965,-101.2003354),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -267,7 +274,60 @@ class Ruta23mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Blvrd Valle de Santiago',
+                      onPressed: (){
+
+                      },
+                    ),
+                  ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.5742808,-101.2106362),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+                    ),
+                  ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.577599, -101.216448),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+                    ),
+                  ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.582487, -101.230852),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
                       onPressed: (){
 
                       },
@@ -292,6 +352,27 @@ class Ruta23mapa extends StatelessWidget {
             child: Icon(Icons.map, color: Colors.white,),
           ),
         ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(10, 40, 0, 0),
+          child: Container(
+            height: 50,
+            width: 200,
+            color: Colors.transparent,
+            child: new Container(
+              decoration: new BoxDecoration(
+                color: Colors.green,
+                borderRadius: new BorderRadius.circular(20)
+              ),
+              child: Text(
+                "   Ruta 23",
+                style: TextStyle(
+                  color: Colors.grey[800],
+                  fontWeight: FontWeight.w700,
+                  fontSize: 40),
+                )
+              ),
+            ),
+          ),
       ],
       )
     );

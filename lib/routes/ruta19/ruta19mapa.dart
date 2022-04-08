@@ -10,6 +10,8 @@ import 'package:xidooalpha/routes/ruta10/rutadiez.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
 import 'package:xidooalpha/routes/ruta12/rutadoce_a_conalep.dart';
 import 'package:xidooalpha/routes/ruta12/rutadoce_a_seguro.dart';
+import 'package:xidooalpha/routes/ruta19/rutadiecinueve_a_la_luz.dart';
+import 'package:xidooalpha/routes/ruta19/rutadiecinueve_a_las_estancias.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
 
 class Ruta19mapa extends StatelessWidget {
@@ -17,10 +19,6 @@ class Ruta19mapa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: const Text('Ruta 19'),
-      ),
       body:
       Stack(
         children: [
@@ -55,7 +53,7 @@ class Ruta19mapa extends StatelessWidget {
                       onPressed: (){
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Rutadoce_a_seguro())
+                          MaterialPageRoute(builder: (context) => Rutadiecinueve_a_las_estancias())
                         );
                       },
                     ),
@@ -78,7 +76,7 @@ class Ruta19mapa extends StatelessWidget {
                       onPressed: (){
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Rutadoce_a_conalep())
+                          MaterialPageRoute(builder: (context) => Rutadiecinueve_a_la_luz())
                         );
                       },
                     ),
@@ -87,7 +85,7 @@ class Ruta19mapa extends StatelessWidget {
               Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.570404, -101.221389),
+                point: latLng.LatLng(20.570634, -101.221611),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -96,7 +94,6 @@ class Ruta19mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Blvd San Pedro',
                       onPressed: (){
                         
                       },
@@ -106,7 +103,7 @@ class Ruta19mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.576084, -101.215045),
+                point: latLng.LatLng(20.573888, -101.209756),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -115,7 +112,6 @@ class Ruta19mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Seguro',
                       onPressed: (){
                         
                       },
@@ -125,7 +121,7 @@ class Ruta19mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.573878, -101.209779),
+                point: latLng.LatLng(20.573076, -101.207342),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -134,7 +130,6 @@ class Ruta19mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Morelos con cazadora',
                       onPressed: (){
                         
                       },
@@ -144,7 +139,7 @@ class Ruta19mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.573069, -101.207361),
+                point: latLng.LatLng(20.571526, -101.202963),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -153,7 +148,6 @@ class Ruta19mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Artes con Morelos',
                       onPressed: (){
 
                       },
@@ -163,7 +157,7 @@ class Ruta19mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.569919, -101.197927),
+                point: latLng.LatLng(20.572296, -101.198603),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -172,7 +166,6 @@ class Ruta19mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Centro, Ignacio Zaragoza con Calle Miguel Hidalgo',
                       onPressed: (){
 
                       },
@@ -182,7 +175,7 @@ class Ruta19mapa extends StatelessWidget {
               Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.566920, -101.198884),
+                point: latLng.LatLng(20.566182, -101.199251),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -191,7 +184,6 @@ class Ruta19mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Centro, Cancha Deportiva El Árbol',
                       onPressed: (){
 
                       },
@@ -201,7 +193,7 @@ class Ruta19mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.543408, -101.204893),
+                point: latLng.LatLng(20.5628257,-101.1975828),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -210,7 +202,6 @@ class Ruta19mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Blvrd Valle de Santiago',
                       onPressed: (){
 
                       },
@@ -220,7 +211,7 @@ class Ruta19mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.563076, -101.200843),
+                point: latLng.LatLng(20.5641401,-101.1971185),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -229,7 +220,6 @@ class Ruta19mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Valle de santiago',
                       onPressed: (){
 
                       },
@@ -239,7 +229,7 @@ class Ruta19mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.550793, -101.203869),
+                point: latLng.LatLng(20.5754779,-101.2044312),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -248,9 +238,7 @@ class Ruta19mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Deportiva',
                       onPressed: (){
-
                       },
                     ),
                   ),
@@ -258,7 +246,8 @@ class Ruta19mapa extends StatelessWidget {
             Marker(
                 width: 80.0,
                 height:80,
-                point: latLng.LatLng(20.543408, -101.204893),
+                point: latLng.LatLng(20.578204, -101.214960
+),
                 builder: (ctx) =>
                   Container(
                     child: IconButton(
@@ -267,9 +256,7 @@ class Ruta19mapa extends StatelessWidget {
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
-                      tooltip: 'Parada Blvrd Valle de Santiago',
                       onPressed: (){
-
                       },
                     ),
                   ),
@@ -292,6 +279,27 @@ class Ruta19mapa extends StatelessWidget {
             child: Icon(Icons.map, color: Colors.white,),
           ),
         ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(10, 40, 0, 0),
+          child: Container(
+            height: 50,
+            width: 200,
+            color: Colors.transparent,
+            child: new Container(
+              decoration: new BoxDecoration(
+                color: Colors.green,
+                borderRadius: new BorderRadius.circular(20)
+              ),
+              child: Text(
+                "   Ruta 19",
+                style: TextStyle(
+                  color: Colors.grey[800],
+                  fontWeight: FontWeight.w700,
+                  fontSize: 40),
+                )
+              ),
+            ),
+          ),
       ],
       )
     );

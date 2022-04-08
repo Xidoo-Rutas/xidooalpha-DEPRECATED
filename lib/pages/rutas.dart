@@ -16,6 +16,7 @@ class Rutas extends StatelessWidget {
      //   backgroundColor: Colors.blue,
      //   title: const Text('Rutas'),
      // ),
+
       body:
       Stack(
         children: [
@@ -268,6 +269,132 @@ class Rutas extends StatelessWidget {
                       },
                     ),
                   ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.551537, -101.203451),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+                    ),
+                  ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.5628162,-101.1974987),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+                    ),
+                  ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.5714773,-101.1992209),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+                    ),
+                  ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.5717965,-101.2003354),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+                    ),
+                  ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.574342, -101.210756),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+                    ),
+                  ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.576505, -101.216535),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+                    ),
+                  ),
+              ),
+            Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.571189, -101.218548),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+                    ),
+                  ),
               )
             ]
           )  
@@ -287,6 +414,27 @@ class Rutas extends StatelessWidget {
             child: Icon(Icons.map, color: Colors.white,),
           ),
         ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(10, 40, 0, 0),
+          child: Container(
+            height: 50,
+            width: 200,
+            color: Colors.transparent,
+            child: new Container(
+              decoration: new BoxDecoration(
+                color: Colors.blue,
+                borderRadius: new BorderRadius.circular(20)
+              ),
+              child: Text(
+                "   Ruta 10",
+                style: TextStyle(
+                  color: Colors.grey[800],
+                  fontWeight: FontWeight.w700,
+                  fontSize: 40),
+                )
+              ),
+            ),
+          ),
       ],
       )
     );

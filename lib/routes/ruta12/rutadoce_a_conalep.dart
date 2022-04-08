@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:xidooalpha/pages/rutas.dart';
+import 'package:xidooalpha/routes/ruta12/ruta12mapa.dart';
 
 
 class Rutadoce_a_conalep extends StatelessWidget {
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _currentStep > 0 ? setState(() => _currentStep -= 1) : null;
   }
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           )
         ],
-        title: const Text('Ruta diez'),
+        title: const Text('Ruta 12'),
       ),
       body: Column(
         children: [
@@ -79,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(color: Colors.black,fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 TextSpan(
-                  text: "Conalep",
+                  text: " Conalep",
                   style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.normal)
                 ),
               ],
@@ -99,13 +100,31 @@ class _HomeScreenState extends State<HomeScreen> {
               onStepTapped: (step) => _stepTapped(step),
               onStepContinue: _stepContinue,
               onStepCancel: _stepCancel,
+              controlsBuilder: (context,_){
+                return Row(
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: (){
+                        _stepContinue();
+                      },
+                      child: const Text('Siguiente ruta'),
+                    ),
+                    TextButton(
+                      onPressed: (){
+                        _stepCancel();
+                      },
+                      child: const Text('Ruta anterior'),
+                    ),
+                  ],
+                );
+              },
               steps: [
                 // The first step: Name
                 Step(
-                  title: const Text('Parada Estancias'),
+                  title: const Text('Hospital General de Salamanca'),
                   content: Column(
                     children: [
-                      Text('Estancias encantadas con esquina boulevard San Pedro')
+                      Text('Av, de los deportes, deportivo.')
                     ],
                   ),
                   isActive: _currentStep >= 0,
@@ -114,23 +133,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       : StepState.complete,
                 ),
                 Step(
-                  title: const Text('San Pedro'),
-                  content: Column(
-                    children: [
-                      Text('Esquina San Xavier con Esquina Rinconada San Marcos')
-                    ],
-                  ),
-                  isActive: _currentStep >= 0,
-                  state: _currentStep >= 1
-                      ? StepState.disabled
-                      : StepState.complete,
-                ),
-                // The third step: Verify phone number
-                Step(
-                  title: const Text('Seguro Zona Centro'),
+                  title: const Text('Cetis'),
                   content: Column(
                     children: <Widget>[
-                      Text('Zona Centro, esquina con el seguro IMMS')
+                      Text('Av Leona Vicario, los Rangeles.')
                     ],
                   ),
                   isActive: _currentStep >= 0,
@@ -139,10 +145,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       : StepState.complete,
                 ),
                 Step(
-                  title: const Text('San Pedro'),
+                  title: const Text('Mercado'),
                   content: Column(
                     children: [
-                      Text('Esquina San Xavier con Esquina Rinconada San Marcos')
+                      Text('Mariano Abasolo 103A, centro.')
+                    ],
+                  ),
+                  isActive: _currentStep >= 0,
+                  state: _currentStep >= 1
+                      ? StepState.disabled
+                      : StepState.complete,
+                ),
+                Step(
+                  title: const Text('Conalep '),
+                  content: Column(
+                    children: [
+                      Text('Ave. Conalep, San Rafael de Uruétaro.')
                     ],
                   ),
                   isActive: _currentStep >= 0,
@@ -152,6 +170,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 0, 20, 20),
+            child: Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+              backgroundColor: Colors.black87,   
+              
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Ruta12mapa())
+                );
+              },
+              child: Icon(Icons.arrow_back, color: Colors.white,),
+            ),
+           ),
           ),
         ],
       ),

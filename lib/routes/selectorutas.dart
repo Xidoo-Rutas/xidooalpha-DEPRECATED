@@ -41,10 +41,13 @@ class Botones extends StatelessWidget{
               textAlign: TextAlign.left,
               style: TextStyle(color: Colors.white, fontSize: 20))            
           ),
-          Text(
-            "Ruta 10",
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white, fontSize: 20),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 90, 0, 0),
+            child: Text(
+              "Ruta 10",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
           ),
           IconButton(
             alignment: Alignment.center,
