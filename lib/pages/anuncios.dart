@@ -138,8 +138,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 onLongPress: () {
                 },
-                title: Text(noticias[index].nombreResponsable ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
-                subtitle: Text(noticias[index].nombreResponsable ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
+                title: Text(noticias[index].titulo ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
+                subtitle: Text(noticias[index].categoria ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
                 trailing: Icon(Icons.bookmark_add_outlined, color: Colors.red,),
                 leading: ConstrainedBox(
                   constraints: BoxConstraints(

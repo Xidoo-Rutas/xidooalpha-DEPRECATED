@@ -44,45 +44,58 @@ class _MostrarNoticia extends State<MostrarNoticia> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Colors.black12
+              //color: Colors.black12
             ),
             margin: EdgeInsets.only(top: 20, bottom: 20, left: 25, right: 25),
             child: Container(
-              child: Text(titulo.text) //titulo
+              child: Text(titulo.text,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic
+              )) //titulo
             ),
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(child: Image.network(
-                'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'
-                )
-              ),
-              Expanded(flex:2, 
-              child: Image.network(
-                'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'
-                )
-              ),
-              Expanded(
+          Container(
+            margin: EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(child: Image.network(
+                  'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'
+                  )
+                ),
+                Expanded(flex:2, 
                 child: Image.network(
                   'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'
                   )
                 ),
-            ],
+                Expanded(
+                  child: Image.network(
+                    'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'
+                    )
+                  ),
+              ],
+            ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 20),
             child: Container(
                 child: Text(
-                nombreResponsable.text,
+                "Escrito por: " + nombreResponsable.text,
                 textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontStyle: FontStyle.italic
+                ),
               ),
               )
             ),
           Container(
-            margin: EdgeInsets.only(top: 20),
-            child: const Text(
+            margin: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+            color: Colors.grey,
+            child: Text(
                     "Datos del negocio", //de la base de datos
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -93,33 +106,29 @@ class _MostrarNoticia extends State<MostrarNoticia> {
                     ),
                 ),
           Container(
-            margin: EdgeInsets.only(top: 20),
-            child: const Text(
-              "categoria del negocio",
-              textAlign: TextAlign.center,
+            margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+            child: Text(
+              descripccion.text,
+              textAlign: TextAlign.justify,
               style: TextStyle(
-                fontWeight: FontWeight.bold
+                fontWeight: FontWeight.normal
                 ),
               ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 10),
-            child: Container(
-              child: Text(
-                nombreResponsable.text, //de la base de datos
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Color(0xff242424),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400
+            margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+            child: Text(
+              descripccion2.text,
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                fontWeight: FontWeight.normal
                 ),
-                ),
-            ),
+              ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 10),
+            margin: EdgeInsets.only(top: 30),
             child: const Text(
-              "Direccion",
+              "Correo electronico del escritor:",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold
@@ -129,63 +138,10 @@ class _MostrarNoticia extends State<MostrarNoticia> {
           Container(
             margin: EdgeInsets.only(top: 10),
             child: Text(
-              nombreResponsable.text,
+              email.text,
               textAlign: TextAlign.center,
               ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            child: const Text(
-              "Telefono",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold
-                ),
-              ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            child: Text(
-              nombreResponsable.text,
-              textAlign: TextAlign.center,
-              ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            child: const Text(
-              "Correo electronico",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold
-                ),
-              ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 10),
-            child: Text(
-              nombreResponsable.text,
-              textAlign: TextAlign.center,
-              ),
-          ),
-          // CupertinoButton(
-              // onPressed: () {
-              //   // String name = controllerName.text;
-              //   // String surname = controllerSurname.text;
-              //   // String phone = controllerPhone.text;
-
-              //   // if (name.isNotEmpty && surname.isNotEmpty && phone.isNotEmpty) {
-              //   //   Client c = new Client(
-              //   //       name: name, surname: surname, phone: phone, id: id);
-
-              //   //   modifyClient(c).then((client) {
-              //   //     if (client.id != '') {
-              //   //       print('se modifico el cliente');
-              //   //       Navigator.pop(context, client);
-              //   //     }
-              //   //   });
-              //   // }
-              // },
-              // child: Text("boton")),
         ],
       ),
       )
