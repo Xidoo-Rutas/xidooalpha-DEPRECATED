@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' as latLng;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,10 +10,31 @@ import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
 
 
+class Ruta {
+  double? lng;
+  double? lat;
+
+  Ruta({
+    required this.lng,
+    required this.lat
+  });
+  
+  static Ruta fromJson(Map<String, dynamic> data){
+    return Ruta(
+      lng: (data['lng'] as num).toDouble(),
+      lat: (data['lat'] as num).toDouble()
+    );
+  }
+}
 class Rutas extends StatelessWidget {
+
+  List<latLng.LatLng> latlngList = <latLng.LatLng>[];
+
 
   @override
   Widget build(BuildContext context) {
+    readJson();
+    
     return Scaffold(
      // appBar: AppBar(
      //   backgroundColor: Colors.blue,
@@ -22,17 +46,28 @@ class Rutas extends StatelessWidget {
         children: [
           FlutterMap(
         options: MapOptions(
-          center: latLng.LatLng(20.5739, -101.1957),
+          center: latLng.LatLng(31.050478, -7.931633),
           zoom: 15.0,
         ), 
         layers: [
           TileLayerOptions(
-            urlTemplate: "https://api.mapbox.com/styles/v1/tadeovega/cktszafdy0uc917m8gylcaft6/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ",
+            urlTemplate: "https://api.mapbox.com/styles/v1/tadeovega/cl1fwvfxq000415nqbjnb67ud/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ",
             additionalOptions: {
               'accessToken': 'pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ',
               'id': 'mapbox.mapbox-streets-v8'
             }
           ),
+          PolylineLayerOptions(polylines: [
+              Polyline(
+                isDotted: false,
+                points: latlngList,
+                // isDotted: true,
+                color: Color(0xFF669DF6),
+                strokeWidth: 3.0,
+                borderColor: Color.fromARGB(255, 242, 8, 8),
+                borderStrokeWidth: 0.1,
+              )
+            ]),
            MarkerLayerOptions(
             markers: [
               Marker(
@@ -438,5 +473,12 @@ class Rutas extends StatelessWidget {
       ],
       )
     );
+  }
+  readJson() async {
+    final String response = await rootBundle.loadString('assets/ruta.json');
+    final data = await json.decode(response);
+    for (var punto in data){
+      latlngList.add(latLng.LatLng(punto["lat"], punto["lng"]));
+    }
   }
 }
