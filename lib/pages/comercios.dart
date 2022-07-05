@@ -4,6 +4,7 @@ import 'package:xidooalpha/peticiones/pNegocios.dart';
 import 'package:flutter/material.dart';
 import 'package:xidooalpha/pages/vistaNegocio.dart';
 
+
 void main() => runApp(Comercios());
 class Comercios extends StatelessWidget {
   @override
@@ -27,14 +28,23 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade800,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-          toolbarHeight: 100,
-          backgroundColor: Colors.yellowAccent.shade700,
-          shadowColor: Colors.black,
+        title: Image.asset(
+          "images/logo.png",
+          fit: BoxFit.contain,
+          height: 150,
+        ),
+          toolbarHeight: 150,
+          backgroundColor: Color.fromARGB(255, 54, 54, 54),
+          shadowColor: Color.fromARGB(255, 75, 75, 75),
+          shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
+          
+        ),
       ),
       body: Container(
-        decoration: BoxDecoration(color: Colors.grey.shade800),
+        decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
         margin: EdgeInsets.only(bottom: 55.0, ),
         child: getClients(context, listClient()),
       ),
@@ -91,12 +101,12 @@ class _MyHomePageState extends State<MyHomePage> {
         return 
             Container(
               decoration: BoxDecoration(
-                color: Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(12),
+                color: Color.fromARGB(229, 229, 229, 229),
+                borderRadius: BorderRadius.circular(30),
                 border: Border.all(color: Colors.black12),
                 boxShadow: [
                         BoxShadow(
-                          color: Colors.black,
+                          color: Color.fromARGB(228, 255, 255, 255),
                           spreadRadius: 2,
                           blurRadius: 6,
                           offset: Offset(
@@ -105,8 +115,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             ), //(dy, dx)
                         ),
                       ],
-                ),        
-                margin: EdgeInsets.only(bottom: 15.0, left: 10.0, right: 10.0, top: 10.0),      
+                ),   
+                height: 125,     
+                margin: EdgeInsets.only(bottom: 5.0, left: 10.0, right: 10.0, top: 10.0),      
               child: ListTile(
                 onTap: () {
                     Navigator.push(
@@ -120,15 +131,33 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 onLongPress: () {
                 },
-                title: Text(clients[index].name ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
-                subtitle: Text(clients[index].name ?? ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
+                title: 
+                Padding(
+                  padding: EdgeInsets.fromLTRB(50, 20, 0, 0),
+                  child:                 
+                  Text(clients[index].name ?? '' , 
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w800)), 
+                ),
+//?? verifica que no sea nulo, en caso de que sea la app se detiene
+                subtitle: Padding(
+                  padding: EdgeInsets.fromLTRB(50, 5, 0, 0),
+                  child:                 
+                  Text(clients[index].eslogan ?? '', 
+                    style: TextStyle(
+                      fontSize: 17,
+                      ))),//?? verifica que no sea nulo, en caso de que sea la app se detiene
                 trailing: Icon(Icons.heart_broken, color: Colors.red,), 
                 leading: CircleAvatar(
                   backgroundColor: Colors.black,
                   child: Text(clients[index].name.substring(0, 1) ?? true), //solo muestra una letra
                 ),
+                
             ),
+            
             );
+            
       },
       
     );
