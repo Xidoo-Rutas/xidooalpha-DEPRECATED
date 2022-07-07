@@ -13,6 +13,8 @@ import 'package:xidooalpha/routes/ruta23/ruta23mapa.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
 import 'package:latlong2/latlong.dart';
 
+import 'package:xidooalpha/pages/r_cultural.dart';
+
 
 
 class Ruta {
@@ -168,6 +170,8 @@ class Rutas extends StatelessWidget {
               ),
             ),
           ),
+
+
           Padding(
             padding: EdgeInsets.only(bottom: 90.0,left: 330, right: 5, top: 500),
               child: Container(

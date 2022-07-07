@@ -8,14 +8,18 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' as latLng;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:xidooalpha/pages/perfil.dart';
+import 'package:xidooalpha/routes/ruta23/rutaveintitres_a_la_cruz.dart';
+import 'package:xidooalpha/routes/ruta23/rutaveintitres_a_la_uts.dart';
+
+import 'package:xidooalpha/routes/ruta12/ruta12mapa.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
 import 'package:xidooalpha/routes/ruta12/rutadoce_a_conalep.dart';
 import 'package:xidooalpha/routes/ruta12/rutadoce_a_seguro.dart';
-import 'package:xidooalpha/routes/ruta23/rutaveintitres_a_la_cruz.dart';
-import 'package:xidooalpha/routes/ruta23/rutaveintitres_a_la_uts.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
-
+import 'package:xidooalpha/routes/ruta19/ruta19mapa.dart';
+import 'package:xidooalpha/routes/ruta23/ruta23mapa.dart';
+import 'package:xidooalpha/pages/rutas.dart';
 class Ruta {
   double? lng;
   double? lat;
@@ -380,20 +384,7 @@ class Ruta23mapa extends StatelessWidget {
           )  
         ],
       ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: FloatingActionButton(
-            backgroundColor: Colors.amber,   
-            
-            onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Selectorutas())
-              );
-            },
-            child: Icon(Icons.map, color: Colors.white,),
-          ),
-        ),
+       
         Padding(
           padding: EdgeInsets.fromLTRB(10, 40, 0, 0),
           child: Container(
@@ -408,12 +399,336 @@ class Ruta23mapa extends StatelessWidget {
               child: Text(
                 "   Ruta 23",
                 style: TextStyle(
-                  color: Colors.grey[800],
+                  color: Color.fromARGB(255, 255, 255, 255),
                   fontWeight: FontWeight.w700,
                   fontSize: 40),
                 )
               ),
             ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 90.0,left: 330, right: 5, top: 500),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Colors.black87,
+                  ),
+                child:ListView(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 50.0),
+                    child: Icon(
+                    Icons.arrow_downward,
+                      size: 30, 
+                      color: Color.fromARGB(255, 177, 177, 177)
+                        ),
+                        ),
+
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 10.0),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Colors.amber,   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "X",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 189, 9),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Ruta23mapa())
+                          );
+                        },
+                        child: Text(
+                          "23",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 117, 212),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Rutas())
+                          );
+                        },
+                        child: Text(
+                          "10",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 189, 9),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Ruta19mapa())
+                          );
+                        },
+                        child: Text(
+                          "19",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 117, 212),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Ruta12mapa())
+                          );
+                        },
+                        child: Text(
+                          "12",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 189, 9),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Ruta23mapa())
+                          );
+                        },
+                        child: Text(
+                          "23",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 251, 255, 0),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 117, 212),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "6",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 243, 19, 11),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 243, 19, 11),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 243, 19, 11),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 40.0),
+                    child: Icon(
+                    Icons.arrow_upward,
+                      size: 30, 
+                      color: Color.fromARGB(255, 177, 177, 177)
+                        ),
+                        ),      
+              ]
+          ),
+      ),
           ),
       ],
       )
