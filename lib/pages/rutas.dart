@@ -177,20 +177,32 @@ class Rutas extends StatelessWidget {
           
           
           Padding(
-            padding: EdgeInsets.only(bottom: 90.0,left: 320, right: 10, top: 100),
+            padding: EdgeInsets.only(bottom: 90.0,left: 330, right: 5, top: 500),
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Color.fromARGB(255, 44, 44, 44),
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Colors.black87,
                   ),
                 child:ListView(
                 children: [
+
+ 
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 50.0),
+                    child: Icon(
+                    Icons.arrow_downward,
+                      size: 30, 
+                      color: Color.fromARGB(255, 177, 177, 177)
+                        ),
+                        ),
+
                     Padding(
-                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                      padding: EdgeInsets.only(bottom: 10.0),
                         child: Container(
                     child: Align(
                       alignment: Alignment.center,
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.small(
+                        heroTag: null,
                         backgroundColor: Colors.amber,   
                         
                         onPressed: (){
@@ -224,7 +236,8 @@ class Rutas extends StatelessWidget {
                         child: Container(
                     child: Align(
                       alignment: Alignment.center,
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.small(
+                        heroTag: null,
                         backgroundColor: Color.fromARGB(255, 0, 189, 9),   
                         
                         onPressed: (){
@@ -253,7 +266,8 @@ class Rutas extends StatelessWidget {
                         child: Container(
                     child: Align(
                       alignment: Alignment.center,
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.small(
+                        heroTag: null,
                         backgroundColor: Color.fromARGB(255, 0, 117, 212),   
                         
                         onPressed: (){
@@ -282,7 +296,8 @@ class Rutas extends StatelessWidget {
                         child: Container(
                     child: Align(
                       alignment: Alignment.center,
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.small(
+                        heroTag: null,
                         backgroundColor: Color.fromARGB(255, 0, 189, 9),   
                         
                         onPressed: (){
@@ -311,7 +326,8 @@ class Rutas extends StatelessWidget {
                         child: Container(
                     child: Align(
                       alignment: Alignment.center,
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.small(
+                        heroTag: null,
                         backgroundColor: Color.fromARGB(255, 0, 117, 212),   
                         
                         onPressed: (){
@@ -340,7 +356,8 @@ class Rutas extends StatelessWidget {
                         child: Container(
                     child: Align(
                       alignment: Alignment.center,
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.small(
+                        heroTag: null,
                         backgroundColor: Color.fromARGB(255, 0, 189, 9),   
                         
                         onPressed: (){
@@ -369,7 +386,8 @@ class Rutas extends StatelessWidget {
                         child: Container(
                     child: Align(
                       alignment: Alignment.center,
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.small(
+                        heroTag: null,
                         backgroundColor: Color.fromARGB(255, 0, 117, 212),   
                         
                         onPressed: (){
@@ -398,7 +416,8 @@ class Rutas extends StatelessWidget {
                         child: Container(
                     child: Align(
                       alignment: Alignment.center,
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.small(
+                        heroTag: null,
                         backgroundColor: Color.fromARGB(255, 243, 19, 11),   
                         
                         onPressed: (){
@@ -427,7 +446,8 @@ class Rutas extends StatelessWidget {
                         child: Container(
                     child: Align(
                       alignment: Alignment.center,
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.small(
+                        heroTag: null,
                         backgroundColor: Color.fromARGB(255, 243, 19, 11),   
                         
                         onPressed: (){
@@ -456,7 +476,8 @@ class Rutas extends StatelessWidget {
                         child: Container(
                     child: Align(
                       alignment: Alignment.center,
-                      child: FloatingActionButton(
+                      child: FloatingActionButton.small(
+                        heroTag: null,
                         backgroundColor: Color.fromARGB(255, 243, 19, 11),   
                         
                         onPressed: (){
@@ -478,6 +499,15 @@ class Rutas extends StatelessWidget {
                     ),
                   ),
                   ),
+
+                  Padding(
+                    padding: EdgeInsets.only(top: 40.0),
+                    child: Icon(
+                    Icons.arrow_upward,
+                      size: 30, 
+                      color: Color.fromARGB(255, 177, 177, 177)
+                        ),
+                        ),
 
                   
               ]
