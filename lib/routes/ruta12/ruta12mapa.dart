@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -11,11 +13,55 @@ import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
 import 'package:xidooalpha/routes/ruta12/rutadoce_a_conalep.dart';
 import 'package:xidooalpha/routes/ruta12/rutadoce_a_seguro.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
+//
 
+
+class Ruta {
+  double? lng;
+  double? lat;
+
+
+  Ruta({
+    required this.lng,
+    required this.lat,
+  });
+  
+  static Ruta fromJson(Map<String, dynamic> data ){
+    return Ruta(
+      lng: (data['lng'] as num).toDouble(),
+      lat: (data['lat'] as num).toDouble(),
+    );
+  }
+}
+
+class RutaR {
+
+  double? lngR;
+  double? latR;
+
+  RutaR({
+    required this.lngR,
+    required this.latR
+  });
+  
+  static RutaR fromJson(Map<String, dynamic> dataR){
+    return RutaR(
+      lngR: (dataR['lng'] as num).toDouble(),
+      latR: (dataR['lat'] as num).toDouble(),
+    );
+  }
+}
 class Ruta12mapa extends StatelessWidget {
 
+
+  List<latLng.LatLng> latlngList = <latLng.LatLng>[];
+  List<latLng.LatLng> latlngListR = <latLng.LatLng>[];
+  
   @override
+  
   Widget build(BuildContext context) {
+  readJson();
+  readJsonR();
     return Scaffold(
       body:
       Stack(
@@ -27,12 +73,36 @@ class Ruta12mapa extends StatelessWidget {
         ), 
         layers: [
           TileLayerOptions(
-            urlTemplate: "https://api.mapbox.com/styles/v1/tadeovega/cl1n6mi0t002c15nzusnf47lj/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ",
+            urlTemplate: "https://api.mapbox.com/styles/v1/tadeovega/cl1fwvfxq000415nqbjnb67ud/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ",
             additionalOptions: {
               'accessToken': 'pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ',
               'id': 'mapbox.mapbox-streets-v8'
             }
           ),
+          PolylineLayerOptions(polylines: [
+              Polyline(
+                
+                isDotted: false,
+                points: latlngList,
+                // isDotted: true,
+                color: Color.fromARGB(255, 0, 177, 9),
+                strokeWidth: 3.0,
+                borderColor: Color.fromARGB(255, 242, 8, 8),
+                borderStrokeWidth: 0.1,
+              ),
+            ]),
+            PolylineLayerOptions(polylines: [
+              Polyline(
+                
+                isDotted: false,
+                points: latlngListR,
+                // isDotted: true,
+                color: Color.fromARGB(255, 235, 110, 0),
+                strokeWidth: 3.0,
+                borderColor: Color.fromARGB(255, 242, 8, 8),
+                borderStrokeWidth: 0.1,
+              ),
+          ]),
            MarkerLayerOptions(
             markers: [
               Marker(
@@ -80,6 +150,7 @@ class Ruta12mapa extends StatelessWidget {
                     ),
                   ),
               ),
+              
               Marker(
                 width: 80.0,
                 height:80,
@@ -142,7 +213,7 @@ class Ruta12mapa extends StatelessWidget {
                   Container(
                     child: IconButton(
                       icon: Icon(Icons.hail),
-                      color:Colors.amber,
+                      color:Color.fromARGB(255, 57, 55, 47),
                       splashColor: Colors.white,
                       highlightColor: Colors.white,
                       iconSize: 30.0,
@@ -339,4 +410,21 @@ class Ruta12mapa extends StatelessWidget {
       )
     );
   }
+  readJson() async {
+    final String response = await rootBundle.loadString('assets/ruta_12/12_ida.json');
+    final data = await json.decode(response);
+    for (var punto in data){
+      latlngList.add(latLng.LatLng(punto["lat"], punto["lng"]));
+    }
+
+  }
+
+  readJsonR() async {
+    final String responseR = await rootBundle.loadString('assets/ruta_12/12_regreso.json');
+    final dataR = await json.decode(responseR);
+    for (var punto in dataR){
+      latlngListR.add(latLng.LatLng(punto["lat"], punto["lng"]));
+    }
+  }
+  
 }

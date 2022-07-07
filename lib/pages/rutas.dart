@@ -7,6 +7,9 @@ import 'package:latlong2/latlong.dart' as latLng;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
+import 'package:xidooalpha/routes/ruta12/ruta12mapa.dart';
+import 'package:xidooalpha/routes/ruta19/ruta19mapa.dart';
+import 'package:xidooalpha/routes/ruta23/ruta23mapa.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
 import 'package:latlong2/latlong.dart';
 
@@ -48,7 +51,6 @@ class RutaR {
   }
 }
 class Rutas extends StatelessWidget {
-
   List<latLng.LatLng> latlngList = <latLng.LatLng>[];
   List<latLng.LatLng> latlngListR = <latLng.LatLng>[];
 
@@ -112,7 +114,7 @@ class Rutas extends StatelessWidget {
           PolylineLayerOptions(polylines: [
               Polyline(
                 
-                isDotted: true,
+                isDotted: false,
                 points: latlngList,
                 // isDotted: true,
                 color: Color.fromARGB(255, 0, 177, 9),
@@ -126,10 +128,10 @@ class Rutas extends StatelessWidget {
             PolylineLayerOptions(polylines: [
               Polyline(
                 
-                isDotted: true,
+                isDotted: false,
                 points: latlngListR,
                 // isDotted: true,
-                color: Color.fromARGB(255, 255, 232, 23),
+                color: Color.fromARGB(255, 235, 110, 0),
                 strokeWidth: 3.0,
                 borderColor: Color.fromARGB(255, 242, 8, 8),
                 borderStrokeWidth: 0.1,
@@ -153,11 +155,11 @@ class Rutas extends StatelessWidget {
             color: Colors.transparent,
             child: new Container(
               decoration: new BoxDecoration(
-                color: Color.fromARGB(255, 0, 177, 9),
+                color: Color.fromARGB(255, 0, 89, 199),
                 borderRadius: new BorderRadius.circular(20)
               ),
               child: Text(
-                "   Ruta 23",
+                "   Ruta 10",
                 style: TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontWeight: FontWeight.w700,
@@ -166,16 +168,6 @@ class Rutas extends StatelessWidget {
               ),
             ),
           ),
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           Padding(
             padding: EdgeInsets.only(bottom: 90.0,left: 330, right: 5, top: 500),
               child: Container(
@@ -185,8 +177,6 @@ class Rutas extends StatelessWidget {
                   ),
                 child:ListView(
                 children: [
-
- 
                   Padding(
                     padding: EdgeInsets.only(bottom: 50.0),
                     child: Icon(
@@ -224,13 +214,6 @@ class Rutas extends StatelessWidget {
                     ),
                   ),
                   ),
-
-
-
-
-
-
-
                     Padding(
                       padding: EdgeInsets.only(bottom: 10.0, top: 10),
                         child: Container(
@@ -243,7 +226,7 @@ class Rutas extends StatelessWidget {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                            MaterialPageRoute(builder: (context) => Ruta23mapa())
                           );
                         },
                         child: Text(
@@ -259,8 +242,6 @@ class Rutas extends StatelessWidget {
                     ),
                   ),
                   ),
-
-
                   Padding(
                       padding: EdgeInsets.only(bottom: 10.0, top: 10),
                         child: Container(
@@ -273,7 +254,7 @@ class Rutas extends StatelessWidget {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                            MaterialPageRoute(builder: (context) => Rutas())
                           );
                         },
                         child: Text(
@@ -303,7 +284,7 @@ class Rutas extends StatelessWidget {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                            MaterialPageRoute(builder: (context) => Ruta19mapa())
                           );
                         },
                         child: Text(
@@ -333,7 +314,7 @@ class Rutas extends StatelessWidget {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                            MaterialPageRoute(builder: (context) => Ruta12mapa())
                           );
                         },
                         child: Text(
@@ -363,7 +344,7 @@ class Rutas extends StatelessWidget {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                            MaterialPageRoute(builder: (context) => Ruta23mapa())
                           );
                         },
                         child: Text(
@@ -499,7 +480,6 @@ class Rutas extends StatelessWidget {
                     ),
                   ),
                   ),
-
                   Padding(
                     padding: EdgeInsets.only(top: 40.0),
                     child: Icon(
@@ -507,22 +487,17 @@ class Rutas extends StatelessWidget {
                       size: 30, 
                       color: Color.fromARGB(255, 177, 177, 177)
                         ),
-                        ),
-
-                  
+                        ),      
               ]
           ),
-   
       ),
           ),
       ])
         );
   }
   readJson() async {
-    final String response = await rootBundle.loadString('assets/ruta_23/23_ida.json');
-
+    final String response = await rootBundle.loadString('assets/ruta_10/10_ida.json');
     final data = await json.decode(response);
-
     for (var punto in data){
       latlngList.add(latLng.LatLng(punto["lat"], punto["lng"]));
     }
@@ -530,11 +505,8 @@ class Rutas extends StatelessWidget {
   }
 
   readJsonR() async {
-
-    final String responseR = await rootBundle.loadString('assets/ruta_23/23_regreso.json');
-
+    final String responseR = await rootBundle.loadString('assets/ruta_10/10_regreso.json');
     final dataR = await json.decode(responseR);
-
     for (var punto in dataR){
       latlngListR.add(latLng.LatLng(punto["lat"], punto["lng"]));
     }

@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -14,10 +16,50 @@ import 'package:xidooalpha/routes/ruta23/rutaveintitres_a_la_cruz.dart';
 import 'package:xidooalpha/routes/ruta23/rutaveintitres_a_la_uts.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
 
+class Ruta {
+  double? lng;
+  double? lat;
+
+
+  Ruta({
+    required this.lng,
+    required this.lat,
+  });
+  
+  static Ruta fromJson(Map<String, dynamic> data ){
+    return Ruta(
+      lng: (data['lng'] as num).toDouble(),
+      lat: (data['lat'] as num).toDouble(),
+    );
+  }
+}
+
+class RutaR {
+
+  double? lngR;
+  double? latR;
+
+  RutaR({
+    required this.lngR,
+    required this.latR
+  });
+  
+  static RutaR fromJson(Map<String, dynamic> dataR){
+    return RutaR(
+      lngR: (dataR['lng'] as num).toDouble(),
+      latR: (dataR['lat'] as num).toDouble(),
+    );
+  }
+}
+
 class Ruta23mapa extends StatelessWidget {
+  List<latLng.LatLng> latlngList = <latLng.LatLng>[];
+  List<latLng.LatLng> latlngListR = <latLng.LatLng>[];
 
   @override
   Widget build(BuildContext context) {
+  readJson();
+  readJsonR();
     return Scaffold(
       body:
       Stack(
@@ -377,4 +419,21 @@ class Ruta23mapa extends StatelessWidget {
       )
     );
   }
+  readJson() async {
+    final String response = await rootBundle.loadString('assets/ruta_23/23_ida.json');
+    final data = await json.decode(response);
+    for (var punto in data){
+      latlngList.add(latLng.LatLng(punto["lat"], punto["lng"]));
+    }
+
+  }
+
+  readJsonR() async {
+    final String responseR = await rootBundle.loadString('assets/ruta_23/23_regreso.json');
+    final dataR = await json.decode(responseR);
+    for (var punto in dataR){
+      latlngListR.add(latLng.LatLng(punto["lat"], punto["lng"]));
+    }
+  }
+
 }
