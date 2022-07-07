@@ -38,7 +38,7 @@ class Botones extends StatelessWidget{
             padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
             child: Text(
               "   Rutas disponibles",
-              textAlign: TextAlign.left,
+              textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white, fontSize: 20))            
           ),
           Padding(

@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:xidooalpha/puntosMap/rut_marker.dart';
+import 'package:xidooalpha/puntosMap/rut_marker23.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -115,7 +115,7 @@ class Rutas extends StatelessWidget {
                 isDotted: true,
                 points: latlngList,
                 // isDotted: true,
-                color: Color(0xFF669DF6),
+                color: Color.fromARGB(255, 0, 177, 9),
                 strokeWidth: 3.0,
                 borderColor: Color.fromARGB(255, 242, 8, 8),
                 borderStrokeWidth: 0.1,
@@ -129,7 +129,7 @@ class Rutas extends StatelessWidget {
                 isDotted: true,
                 points: latlngListR,
                 // isDotted: true,
-                color: Color.fromARGB(255, 255, 255, 255),
+                color: Color.fromARGB(255, 255, 232, 23),
                 strokeWidth: 3.0,
                 borderColor: Color.fromARGB(255, 242, 8, 8),
                 borderStrokeWidth: 0.1,
@@ -140,23 +140,11 @@ class Rutas extends StatelessWidget {
            MarkerLayerOptions(
               markers: _markers,
 
-          )  
+          )  ,
+          
         ],
       ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: FloatingActionButton(
-            backgroundColor: Colors.amber,   
-            
-            onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Selectorutas())
-              );
-            },
-            child: Icon(Icons.map, color: Colors.white,),
-          ),
-        ),
+        
         Padding(
           padding: EdgeInsets.fromLTRB(10, 40, 0, 0),
           child: Container(
@@ -165,22 +153,340 @@ class Rutas extends StatelessWidget {
             color: Colors.transparent,
             child: new Container(
               decoration: new BoxDecoration(
-                color: Colors.blue,
+                color: Color.fromARGB(255, 0, 177, 9),
                 borderRadius: new BorderRadius.circular(20)
               ),
               child: Text(
-                "   Ruta 12",
+                "   Ruta 23",
                 style: TextStyle(
-                  color: Colors.grey[800],
+                  color: Color.fromARGB(255, 255, 255, 255),
                   fontWeight: FontWeight.w700,
                   fontSize: 40),
                 )
               ),
             ),
           ),
-      ],
-      )
-    );
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          Padding(
+            padding: EdgeInsets.only(bottom: 90.0,left: 320, right: 10, top: 100),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
+                    color: Color.fromARGB(255, 44, 44, 44),
+                  ),
+                child:ListView(
+                children: [
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton(
+                        backgroundColor: Colors.amber,   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "X",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+
+
+
+
+
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton(
+                        backgroundColor: Color.fromARGB(255, 0, 189, 9),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "23",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton(
+                        backgroundColor: Color.fromARGB(255, 0, 117, 212),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "10",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton(
+                        backgroundColor: Color.fromARGB(255, 0, 189, 9),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "19",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton(
+                        backgroundColor: Color.fromARGB(255, 0, 117, 212),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "12",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton(
+                        backgroundColor: Color.fromARGB(255, 0, 189, 9),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "23",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 251, 255, 0),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton(
+                        backgroundColor: Color.fromARGB(255, 0, 117, 212),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "6",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton(
+                        backgroundColor: Color.fromARGB(255, 243, 19, 11),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton(
+                        backgroundColor: Color.fromARGB(255, 243, 19, 11),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton(
+                        backgroundColor: Color.fromARGB(255, 243, 19, 11),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+                  
+              ]
+          ),
+   
+      ),
+          ),
+      ])
+        );
   }
   readJson() async {
     final String response = await rootBundle.loadString('assets/ruta_23/23_ida.json');
