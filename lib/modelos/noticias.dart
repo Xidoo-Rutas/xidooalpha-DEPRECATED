@@ -1,31 +1,28 @@
 class Noticias {
   var id;
-  var nombreResponsable;
-  var email;
-  var categoria;
   var titulo;
-  var descripccion;
-  var descripccion2;
+  var dependencia;
+  var fecha;
+  var parrafo1;
+  var parrafo2;
+  var parrafo3;
 
   Noticias(
-    {
-      this.id, 
-      this.nombreResponsable,
-      this.email,
-      this.categoria,
+      {this.id,
       this.titulo,
-      this.descripccion,
-      this.descripccion2
-    }
-      );
+      this.dependencia,
+      this.fecha,
+      this.parrafo1,
+      this.parrafo2,
+      this.parrafo3});
   factory Noticias.fromJson(Map<String, dynamic> json) {
     return Noticias(
         id: json['_id'] as String,
-        nombreResponsable: json['nombre_responsable'] as String,
-        email: json['email']as String,
-        categoria: json['categoria']as String,
-        titulo: json['Titulo']as String,
-        descripccion: json['descripccion']as String,
-        descripccion2: json['descripccion_dos']as String);
+        titulo: json['titulo'] as String,
+        dependencia: json['dependencia'] as String,
+        fecha: json['fecha'] as String,
+        parrafo1: json['parrafo1'] as String,
+        parrafo2: json['parrafo2'] as String,
+        parrafo3: json['parrafo3'] as String);
   }
 }
