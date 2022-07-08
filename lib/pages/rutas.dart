@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:xidooalpha/puntosMap/rut_marker23.dart';
+import 'package:xidooalpha/puntosMap/rut_marker10.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';

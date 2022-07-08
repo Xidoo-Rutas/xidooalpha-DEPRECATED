@@ -11,6 +11,7 @@ import 'package:xidooalpha/pages/perfil.dart';
 import 'package:xidooalpha/routes/ruta19/rutadiecinueve_a_la_luz.dart';
 import 'package:xidooalpha/routes/ruta19/rutadiecinueve_a_las_estancias.dart';
 
+import 'package:xidooalpha/puntosMap/rut_marker19.dart';
 import 'package:xidooalpha/routes/ruta12/ruta12mapa.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
@@ -60,29 +61,64 @@ class Ruta19mapa extends StatelessWidget {
   List<latLng.LatLng> latlngList = <latLng.LatLng>[];
   List<latLng.LatLng> latlngListR = <latLng.LatLng>[];
 
+  final _pageController = PageController();
+  int _selectedIndex = 0;
+
+  List<Marker> _buildMaarkers(){
+  final _markerList = <Marker>[];
+  for (int i=0; i< mapMaker.length; i++){
+    final mapItem = mapMaker[i];
+    _markerList.add(
+      Marker(
+        height: 50,
+        width: 50,
+        point: mapItem.location, 
+        builder: (_){
+      return GestureDetector(
+        onTap: (){
+          /*_pageController.animateToPage(i, duration: const Duration(milliseconds: 500), curve: Curves.linearToEaseOut);
+          print('Selected ${mapItem.title}');*/
+        },
+        child: _LocationMarker(
+          selected: _selectedIndex == i,
+        ),
+      );
+    },),);
+  }
+  return _markerList;
+}
+
+
+
+
   @override
   Widget build(BuildContext context) {
-  readJson();
-  readJsonR();
-
+    readJson();
+    readJsonR();
+    final _markers = _buildMaarkers();
     return Scaffold(
+     // appBar: AppBar(
+     //   backgroundColor: Colors.blue,
+     //   title: const Text('Rutas'),
+     // ),
+
       body:
       Stack(
         children: [
           FlutterMap(
         options: MapOptions(
-          center: latLng.LatLng(20.5739, -101.1957),
+          center: latLng.LatLng(20.5739, -101.213),
           zoom: 15.0,
         ), 
         layers: [
           TileLayerOptions(
-            urlTemplate: "https://api.mapbox.com/styles/v1/tadeovega/cl1och1oj001t14njvda04b20/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ",
+            urlTemplate: "https://api.mapbox.com/styles/v1/tadeovega/cl1fwvfxq000415nqbjnb67ud/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ",
             additionalOptions: {
               'accessToken': 'pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ',
               'id': 'mapbox.mapbox-streets-v8'
             }
           ),
-            PolylineLayerOptions(polylines: [
+          PolylineLayerOptions(polylines: [
               Polyline(
                 
                 isDotted: false,
@@ -93,6 +129,8 @@ class Ruta19mapa extends StatelessWidget {
                 borderColor: Color.fromARGB(255, 242, 8, 8),
                 borderStrokeWidth: 0.1,
               ),
+              
+
             ]),
             PolylineLayerOptions(polylines: [
               Polyline(
@@ -105,235 +143,14 @@ class Ruta19mapa extends StatelessWidget {
                 borderColor: Color.fromARGB(255, 242, 8, 8),
                 borderStrokeWidth: 0.1,
               ),
-          ]),
+              
+
+            ]),
            MarkerLayerOptions(
-            markers: [
-              Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.553919, -101.181037),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(FontAwesomeIcons.bus),
-                      color:Colors.orange,
-                      splashColor: Colors.orange,
-                      highlightColor: Colors.orange,
-                      iconSize: 30.0,
-                      tooltip: 'Ruta 19',
-                      onPressed: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Rutadiecinueve_a_las_estancias())
-                        );
-                      },
-                    ),
-                  ),
-                            
-              ),
-              Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.565583, -101.224192),
-                builder: (ctx) =>
-                Container(
-                    child: IconButton(
-                      icon: Icon(FontAwesomeIcons.bus),
-                      color:Colors.green,
-                      splashColor: Colors.green,
-                      highlightColor: Colors.green,
-                      iconSize: 30.0,
-                      tooltip: 'Ruta 19',
-                      onPressed: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Rutadiecinueve_a_la_luz())
-                        );
-                      },
-                    ),
-                  ),
-              ),
-              Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.570634, -101.221611),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-                        
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.573888, -101.209756),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-                        
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.573076, -101.207342),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-                        
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.571526, -101.202963),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
+              markers: _markers,
 
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.572296, -101.198603),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-              Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.566182, -101.199251),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.5628257,-101.1975828),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.5641401,-101.1971185),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.5754779,-101.2044312),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.578204, -101.214960
-),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-                      },
-                    ),
-                  ),
-              )
-            ]
-          )  
+          )  ,
+          
         ],
       ),
         
@@ -345,7 +162,7 @@ class Ruta19mapa extends StatelessWidget {
             color: Colors.transparent,
             child: new Container(
               decoration: new BoxDecoration(
-                color: Colors.green,
+                color: Color.fromARGB(255, 0, 189, 9),   
                 borderRadius: new BorderRadius.circular(20)
               ),
               child: Text(
@@ -358,7 +175,9 @@ class Ruta19mapa extends StatelessWidget {
               ),
             ),
           ),
-                    Padding(
+
+
+          Padding(
             padding: EdgeInsets.only(bottom: 90.0,left: 330, right: 5, top: 500),
               child: Container(
                 decoration: BoxDecoration(
@@ -682,18 +501,19 @@ class Ruta19mapa extends StatelessWidget {
           ),
       ),
           ),
-      ],
-      )
-    );
+      ])
+        );
   }
-    readJson() async {
+  readJson() async {
     final String response = await rootBundle.loadString('assets/ruta_19/19_ida.json');
     final data = await json.decode(response);
     for (var punto in data){
       latlngList.add(latLng.LatLng(punto["lat"], punto["lng"]));
     }
+
   }
-    readJsonR() async {
+
+  readJsonR() async {
     final String responseR = await rootBundle.loadString('assets/ruta_19/19_regreso.json');
     final dataR = await json.decode(responseR);
     for (var punto in dataR){
@@ -701,4 +521,30 @@ class Ruta19mapa extends StatelessWidget {
     }
   }
 
+}
+
+class _LocationMarker extends StatelessWidget {
+  const _LocationMarker ({ Key? key, this.selected = false }) : super(key: key);
+
+  final bool selected;
+  @override
+  Widget build(BuildContext context) {
+    //final size = selected ? MARKER_SIZE_EXPANDED : MARKER_SIZE_SHRINKED;
+    return Center(
+      child: AnimatedContainer(
+        height: 30,
+        width: 30,
+        duration: const Duration(milliseconds: 400),
+        child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+        ),
+    ));
+  }
 }
