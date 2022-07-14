@@ -147,8 +147,57 @@ class Ruta23mapa extends StatelessWidget {
            MarkerLayerOptions(
               markers: _markers,
 
-          )  ,
-          
+          ),
+          MarkerLayerOptions(
+              markers: [
+                Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.576863, -101.231835),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(FontAwesomeIcons.bus),
+                      color:Colors.green,
+                      splashColor: Colors.green,
+                      highlightColor: Colors.green,
+                      iconSize: 30.0,
+                      tooltip: 'Ruta 12',
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Rutaveintitres_a_la_cruz())
+                        );
+                      },
+                    ),
+                  ),
+
+              ),
+              Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.559014, -101.166830),
+                builder: (ctx) =>
+                Container(
+                    child: IconButton(
+                      icon: Icon(FontAwesomeIcons.bus),
+                      color:Colors.orange,
+                      splashColor: Colors.orange,
+                      highlightColor: Colors.orange,
+                      iconSize: 30.0,
+                      tooltip: 'Ruta 12',
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Rutaveintitres_a_la_uts())
+                        );
+                      },
+                    ),
+                  ),
+              ),
+              ],
+
+          )
         ],
       ),
         

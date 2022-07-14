@@ -125,9 +125,8 @@ class Ruta12mapa extends StatelessWidget {
                 isDotted: false,
                 points: latlngList,
                 // isDotted: true,
-                color: Color.fromARGB(255, 0, 177, 9),
+                color: Color.fromARGB(255, 0, 116, 200),
                 strokeWidth: 3.0,
-                borderColor: Color.fromARGB(255, 242, 8, 8),
                 borderStrokeWidth: 0.1,
               ),
               
@@ -141,7 +140,6 @@ class Ruta12mapa extends StatelessWidget {
                 // isDotted: true,
                 color: Color.fromARGB(255, 235, 110, 0),
                 strokeWidth: 3.0,
-                borderColor: Color.fromARGB(255, 242, 8, 8),
                 borderStrokeWidth: 0.1,
               ),
               
@@ -152,6 +150,55 @@ class Ruta12mapa extends StatelessWidget {
               
 
           )  ,
+          MarkerLayerOptions(
+            markers: [
+              Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.524076, -101.199094),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(FontAwesomeIcons.bus),
+                      color:Colors.orange,
+                      splashColor: Colors.orange,
+                      highlightColor: Colors.orange,
+                      iconSize: 30.0,
+                      tooltip: 'Ruta 12',
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Rutadoce_a_seguro())
+                        );
+                      },
+                    ),
+                  ),
+
+              ),
+              Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.590984, -101.218791),
+                builder: (ctx) =>
+                Container(
+                    child: IconButton(
+                      icon: Icon(FontAwesomeIcons.bus),
+                      color:Colors.blue,
+                      splashColor: Colors.blue,
+                      highlightColor: Colors.blue,
+                      iconSize: 30.0,
+                      tooltip: 'Ruta 12',
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Rutadoce_a_conalep())
+                        );
+                      },
+                    ),
+                  ),
+              ),
+            ]
+          )
           
         ],
       ),

@@ -119,9 +119,8 @@ class Rutas extends StatelessWidget {
                 isDotted: false,
                 points: latlngList,
                 // isDotted: true,
-                color: Color.fromARGB(255, 0, 177, 9),
+                color: Color.fromARGB(255, 0, 116, 200),
                 strokeWidth: 3.0,
-                borderColor: Color.fromARGB(255, 242, 8, 8),
                 borderStrokeWidth: 0.1,
               ),
               
@@ -135,7 +134,6 @@ class Rutas extends StatelessWidget {
                 // isDotted: true,
                 color: Color.fromARGB(255, 235, 110, 0),
                 strokeWidth: 3.0,
-                borderColor: Color.fromARGB(255, 242, 8, 8),
                 borderStrokeWidth: 0.1,
               ),
               
@@ -145,6 +143,56 @@ class Rutas extends StatelessWidget {
               markers: _markers,
 
           )  ,
+          MarkerLayerOptions(
+              markers: [
+                Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.564564, -101.220181),
+                builder: (ctx) =>
+                  Container(
+                    child: IconButton(
+                      icon: Icon(FontAwesomeIcons.bus),
+                      color:Colors.blue,
+                      splashColor: Colors.blue,
+                      highlightColor: Colors.blue,
+                      iconSize: 30.0,
+                      tooltip: 'Ruta 12',
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Rutadiez())
+                        );
+                      },
+                    ),
+                  ),
+
+              ),
+              Marker(
+                width: 80.0,
+                height:80,
+                point: latLng.LatLng(20.543168, -101.206093),
+                builder: (ctx) =>
+                Container(
+                    child: IconButton(
+                      icon: Icon(FontAwesomeIcons.bus),
+                      color:Colors.orange,
+                      splashColor: Colors.orange,
+                      highlightColor: Colors.orange,
+                      iconSize: 30.0,
+                      tooltip: 'Ruta 12',
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Rutadiez_a_estancias())
+                        );
+                      },
+                    ),
+                  ),
+              ),
+              ],
+
+          )
           
         ],
       ),
