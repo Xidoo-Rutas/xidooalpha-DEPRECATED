@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,13 +8,22 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' as latLng;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:xidooalpha/pages/perfil.dart';
+import 'package:xidooalpha/puntosMap/rut_marker6.dart';
+
+import 'package:xidooalpha/routes/ruta6/rutaseis_a_el_ecoparque.dart';
+import 'package:xidooalpha/routes/ruta6/rutaseis_a_sardinas.dart';
+
 import 'package:xidooalpha/routes/ruta10/rutadiez.dart';
 import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
 import 'package:xidooalpha/routes/ruta12/rutadoce_a_conalep.dart';
 import 'package:xidooalpha/routes/ruta12/rutadoce_a_seguro.dart';
-import 'package:xidooalpha/routes/ruta6/rutaseis_a_el_ecoparque.dart';
-import 'package:xidooalpha/routes/ruta6/rutaseis_a_sardinas.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
+import 'package:xidooalpha/routes/ruta19/ruta19mapa.dart';
+import 'package:xidooalpha/routes/ruta23/ruta23mapa.dart';
+import 'package:xidooalpha/routes/ruta12/ruta12mapa.dart';
+import 'package:xidooalpha/pages/rutas.dart';
+//
+
 
 class Ruta {
   double? lng;
@@ -53,20 +61,58 @@ class RutaR {
   }
 }
 class Ruta6mapa extends StatelessWidget {
-   List<latLng.LatLng> latlngList = <latLng.LatLng>[];
+
+
+  List<latLng.LatLng> latlngList = <latLng.LatLng>[];
   List<latLng.LatLng> latlngListR = <latLng.LatLng>[];
+  
+    final _pageController = PageController();
+  int _selectedIndex = 0;
+
+  List<Marker> _buildMaarkers(){
+  final _markerList = <Marker>[];
+  for (int i=0; i< mapMaker.length; i++){
+    final mapItem = mapMaker[i];
+    _markerList.add(
+      Marker(
+        height: 50,
+        width: 50,
+        point: mapItem.location, 
+        builder: (_){
+      return GestureDetector(
+        onTap: (){
+          /*_pageController.animateToPage(i, duration: const Duration(milliseconds: 500), curve: Curves.linearToEaseOut);
+          print('Selected ${mapItem.title}');*/
+        },
+        child: _LocationMarker(
+          selected: _selectedIndex == i,
+        ),
+      );
+    },),);
+  }
+  return _markerList;
+}
+
+
+
 
   @override
   Widget build(BuildContext context) {
     readJson();
     readJsonR();
+    final _markers = _buildMaarkers();
     return Scaffold(
+     // appBar: AppBar(
+     //   backgroundColor: Colors.blue,
+     //   title: const Text('Rutas'),
+     // ),
+
       body:
       Stack(
         children: [
           FlutterMap(
         options: MapOptions(
-          center: latLng.LatLng(20.5739, -101.1957),
+          center: latLng.LatLng(20.5739, -101.213),
           zoom: 15.0,
         ), 
         layers: [
@@ -76,7 +122,8 @@ class Ruta6mapa extends StatelessWidget {
               'accessToken': 'pk.eyJ1IjoidGFkZW92ZWdhIiwiYSI6ImNrczJpN3hjdjBvcHoyeW80bHlkaWdrN3gifQ.WKTxl4f0GW9LddaCe4PpbQ',
               'id': 'mapbox.mapbox-streets-v8'
             }
-          ), PolylineLayerOptions(polylines: [
+          ),
+          PolylineLayerOptions(polylines: [
               Polyline(
                 
                 isDotted: false,
@@ -103,6 +150,11 @@ class Ruta6mapa extends StatelessWidget {
 
             ]),
            MarkerLayerOptions(
+              markers: _markers,
+              
+
+          )  ,
+          MarkerLayerOptions(
             markers: [
               Marker(
                 width: 80.0,
@@ -149,266 +201,363 @@ class Ruta6mapa extends StatelessWidget {
                     ),
                   ),
               ),
-              Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.59228457289647, -101.18484832552),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-                        
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.593807392482937, -101.18221199355212),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-                        
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.594548809739425, -101.1792563632345),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-                        
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.595177976954435, -101.17860415407795),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.593374682348834, -101.16396988681754),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-              Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.5822,-101.1907744),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.5814284,-101.1971429),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.5699964,-101.2006714),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.5666775,-101.1989446),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.554428,-101.1990711),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.5699846,-101.1948957),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              ),
-            Marker(
-                width: 80.0,
-                height:80,
-                point: latLng.LatLng(20.5713811,-101.1990748),
-                builder: (ctx) =>
-                  Container(
-                    child: IconButton(
-                      icon: Icon(Icons.hail),
-                      color:Colors.amber,
-                      splashColor: Colors.white,
-                      highlightColor: Colors.white,
-                      iconSize: 30.0,
-                      onPressed: (){
-
-                      },
-                    ),
-                  ),
-              )
             ]
-          )  
+          )
+          
         ],
       ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: FloatingActionButton(
-            backgroundColor: Colors.amber,   
-            
-            onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Selectorutas())
-              );
-            },
-            child: Icon(Icons.map, color: Colors.white,),
-          ),
-        ),
-          Padding(
+        
+        Padding(
           padding: EdgeInsets.fromLTRB(10, 40, 0, 0),
           child: Container(
             height: 50,
-            width: 180,
+            width: 200,
             color: Colors.transparent,
             child: new Container(
               decoration: new BoxDecoration(
-                color: Colors.blue,
+                color: Color.fromARGB(255, 0, 89, 199),
                 borderRadius: new BorderRadius.circular(20)
               ),
               child: Text(
-                "   Ruta 6",
+                "     Ruta 6",
                 style: TextStyle(
-                  color: Colors.grey[800],
+                  color: Color.fromARGB(255, 255, 255, 255),
                   fontWeight: FontWeight.w700,
                   fontSize: 40),
                 )
               ),
             ),
           ),
-      ],
-      )
-    );
+
+
+          Padding(
+            padding: EdgeInsets.only(bottom: 90.0,left: 330, right: 5, top: 500),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Colors.black87,
+                  ),
+                child:ListView(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 50.0),
+                    child: Icon(
+                    Icons.arrow_downward,
+                      size: 30, 
+                      color: Color.fromARGB(255, 177, 177, 177)
+                        ),
+                        ),
+
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 10.0),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Colors.amber,   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "X",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 189, 9),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Ruta23mapa())
+                          );
+                        },
+                        child: Text(
+                          "23",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 117, 212),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Rutas())
+                          );
+                        },
+                        child: Text(
+                          "10",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 189, 9),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Ruta19mapa())
+                          );
+                        },
+                        child: Text(
+                          "19",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 117, 212),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Ruta12mapa())
+                          );
+                        },
+                        child: Text(
+                          "12",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 189, 9),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Ruta23mapa())
+                          );
+                        },
+                        child: Text(
+                          "23",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 251, 255, 0),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 0, 117, 212),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>  Ruta6mapa())
+                          );
+                        },
+                        child: Text(
+                          "6",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 243, 19, 11),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 243, 19, 11),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+
+
+                  Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10),
+                        child: Container(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: FloatingActionButton.small(
+                        heroTag: null,
+                        backgroundColor: Color.fromARGB(255, 243, 19, 11),   
+                        
+                        onPressed: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                          );
+                        },
+                        child: Text(
+                          "?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 25.0,
+                            ),
+                          ),
+                      ),
+                    ),
+                  ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 40.0),
+                    child: Icon(
+                    Icons.arrow_upward,
+                      size: 30, 
+                      color: Color.fromARGB(255, 177, 177, 177)
+                        ),
+                        ),      
+              ]
+          ),
+      ),
+          ),
+      ])
+        );
   }
-   readJson() async {
+  readJson() async {
     final String response = await rootBundle.loadString('assets/ruta_6/6_ida.json');
     final data = await json.decode(response);
     for (var punto in data){
@@ -423,5 +572,32 @@ class Ruta6mapa extends StatelessWidget {
     for (var punto in dataR){
       latlngListR.add(latLng.LatLng(punto["lat"], punto["lng"]));
     }
+  }
+
+}
+
+class _LocationMarker extends StatelessWidget {
+  const _LocationMarker ({ Key? key, this.selected = false }) : super(key: key);
+
+  final bool selected;
+  @override
+  Widget build(BuildContext context) {
+    //final size = selected ? MARKER_SIZE_EXPANDED : MARKER_SIZE_SHRINKED;
+    return Center(
+      child: AnimatedContainer(
+        height: 30,
+        width: 30,
+        duration: const Duration(milliseconds: 400),
+        child: IconButton(
+                      icon: Icon(Icons.hail),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+
+                      },
+        ),
+    ));
   }
 }
