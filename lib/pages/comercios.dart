@@ -148,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(
                       fontSize: 17,
                       ))),//?? verifica que no sea nulo, en caso de que sea la app se detiene
-                trailing: Icon(Icons.heart_broken, color: Colors.red,), 
+                //trailing: Icon(Icons.heart_broken, color: Colors.red,), 
                 leading: CircleAvatar(
                   backgroundColor: Colors.black,
                   child: Text(clients[index].name.substring(0, 1) ?? true), //solo muestra una letra

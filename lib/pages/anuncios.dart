@@ -28,18 +28,23 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Colors.white54,
+           backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        backgroundColor: Colors.yellowAccent.shade700,
-        shadowColor: Colors.black,
-        title: Text('Anuncios'),
-        titleTextStyle: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.bold),
+        title: Image.asset(
+          "images/logo.png",
+          fit: BoxFit.contain,
+          height: 150,
+        ),
+          toolbarHeight: 150,
+          backgroundColor: Color.fromARGB(255, 54, 54, 54),
+          shadowColor: Color.fromARGB(255, 75, 75, 75),
+          shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
+          
+        ),
       ),
       body: Container(
-        decoration: BoxDecoration(color: Colors.white54
+        decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
             //   gradient: LinearGradient(
             //    begin: Alignment.topCenter,
             //    end: Alignment.bottomCenter,
@@ -48,22 +53,18 @@ class _MyHomePageState extends State<MyHomePage> {
             //      Colors.yellowAccent.shade400,
             //    ],
             //  )
-            ),
-        margin: EdgeInsets.only(
-          bottom: 55.0,
-        ),
+            margin: EdgeInsets.only(bottom: 55.0, ),
         child: getClients(context, listClient()),
-      ),
-      floatingActionButton: MaterialButton(
-        //backgroundColor: Colors.amberAccent,
-        color: Colors.yellowAccent.shade700,
-        elevation: 10,
+            ),
+      
+      floatingActionButton:FloatingActionButton(
+        backgroundColor: Colors.amberAccent,
         onPressed: () {
           setState(() {
             _MyHomePageState();
           });
         },
-        child: const Text('Actualizar'),
+        child: Icon(Icons.refresh),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
     );
@@ -107,20 +108,23 @@ class _MyHomePageState extends State<MyHomePage> {
       itemCount: noticias.length,
       itemBuilder: (context, index) {
         return Container(
-            height: 100,
+            height: 125,
             decoration: BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(12),
+              color: Color.fromARGB(229, 229, 229, 229),
+              borderRadius: BorderRadius.circular(30),
               border: Border.all(color: Colors.black12),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black12,
-                  spreadRadius: 2,
-                  blurRadius: 6,
-                  offset: Offset(-5.0, 5.0), //(dy, dx)
-                ),
+                          color: Color.fromARGB(228, 255, 255, 255),
+                          spreadRadius: 2,
+                          blurRadius: 6,
+                          offset: Offset(
+                            -5.0,
+                            5.0
+                            ), //(dy, dx)
+                        ),
               ],
-            ),
+            ),  
             margin: EdgeInsets.only(
                 bottom: 15.0, left: 10.0, right: 10.0, top: 10.0),
             child: ListTile(
@@ -134,14 +138,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
               onLongPress: () {},
-              title: Text(noticias[index].titulo ??
-                  ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
-              subtitle: Text(noticias[index].dependencia ??
-                  ''), //?? verifica que no sea nulo, en caso de que sea la app se detiene
-              trailing: Icon(
+              title: 
+              Padding(
+                  padding: EdgeInsets.fromLTRB(50, 20, 0, 0),
+                  child:                 Text(noticias[index].titulo ??
+                  '' , 
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w800)), 
+                ),//?? verifica que no sea nulo, en caso de que sea la app se detiene
+              subtitle: 
+              Padding(
+                  padding: EdgeInsets.fromLTRB(50, 5, 0, 0),
+                  child:       Text(noticias[index].dependencia ??
+                  '', 
+                    style: TextStyle(
+                      fontSize: 17,
+                      ))),//?? verifica que n), //?? verifica que no sea nulo, en caso de que sea la app se detiene
+              /*trailing: Icon(
                 Icons.bookmark_add_outlined,
                 color: Colors.red,
-              ),
+              ),*/
               leading: ConstrainedBox(
                 constraints: BoxConstraints(
                   minWidth: 44,

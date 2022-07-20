@@ -35,12 +35,38 @@ class _MostrarNoticia extends State<MostrarNoticia> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.yellowAccent.shade700,
+        toolbarHeight: 50.0,
+        backgroundColor: Color.fromARGB(255, 51, 51, 51),
+        centerTitle: true,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
+          
         ),
-        body: Container(
-          margin: EdgeInsets.only(bottom: 70.0),
+          ),
+        body: 
+        
+        Container(
+          margin: EdgeInsets.only(bottom: 70.0,left: 20, right: 20, top: 10),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0),
+            color: Color.fromARGB(255, 44, 44, 44),
+          ),
           child: ListView(
             children: [
+              Container(
+                
+                margin: EdgeInsets.only(top: 20, left: 20, right: 40),
+                  child: Container(
+                child: Text(
+                  "Escrito por: " + dependencia.text,
+                  textAlign: TextAlign.left,
+                style: const TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontSize: 30.0,
+            fontStyle: FontStyle.normal,
+            fontWeight: FontWeight.bold,
+                ),),
+              )),
               Container(
                 decoration: BoxDecoration(
                     //color: Colors.black12
@@ -48,26 +74,60 @@ class _MostrarNoticia extends State<MostrarNoticia> {
                 margin:
                     EdgeInsets.only(top: 20, bottom: 20, left: 25, right: 25),
                 child: Container(
+                  
                     child: Text(titulo.text,
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.left,
                         style: TextStyle(
                             fontSize: 30,
-                            color: Colors.black,
+                            color: Colors.yellowAccent.shade700,
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic)) //titulo
                     ),
               ),
+             
+              
+
               Container(
-                margin: EdgeInsets.only(left: 20, right: 20),
+                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                child: Text(
+                  parrafo1.text,
+                  textAlign: TextAlign.left,
+                style: const TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontSize: 15.0,
+            fontStyle: FontStyle.normal
+                ),),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                child: Text(
+                  parrafo2.text,
+                  textAlign: TextAlign.left,
+                style: const TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontSize: 15.0,
+            fontStyle: FontStyle.normal
+                ),),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 20, left: 20, right: 40),
+                child: const Text(
+                  "Correo electronico del escritor:",
+                  textAlign: TextAlign.left,
+                style: const TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontSize: 15.0,
+            fontStyle: FontStyle.normal
+                ),),
+              ),
+              
+               Container(
+                margin: EdgeInsets.only(left: 20, right: 20, top: 30),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
-                        child: Image.network(
-                            'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif')),
-                    Expanded(
-                        flex: 2,
                         child: Image.network(
                             'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif')),
                     Expanded(
@@ -77,55 +137,15 @@ class _MostrarNoticia extends State<MostrarNoticia> {
                 ),
               ),
               Container(
-                  child: Container(
-                child: Text(
-                  "Escrito por: " + titulo.text,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontStyle: FontStyle.italic),
-                ),
-              )),
-              Container(
-                margin:
-                    EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
-                color: Colors.grey,
-                child: Text(
-                  "Datos del negocio", //de la base de datos
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
-                child: Text(
-                  parrafo1.text,
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontWeight: FontWeight.normal),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
-                child: Text(
-                  parrafo2.text,
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontWeight: FontWeight.normal),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 30),
-                child: const Text(
-                  "Correo electronico del escritor:",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                child: Text(
-                  dependencia.text,
-                  textAlign: TextAlign.center,
+                margin: EdgeInsets.only(left: 20, right: 20, top: 30, bottom: 30),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                        child: Image.network(
+                            'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif')),
+                  ],
                 ),
               ),
             ],
