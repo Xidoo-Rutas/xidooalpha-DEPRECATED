@@ -198,7 +198,6 @@ class Ruta19mapa extends StatelessWidget {
                   ),
               ),
               ],
-
           )
           
         ],

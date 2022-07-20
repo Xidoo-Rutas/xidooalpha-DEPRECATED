@@ -10,6 +10,7 @@ import 'package:xidooalpha/routes/ruta10/rutadiez_a_estancias.dart';
 import 'package:xidooalpha/routes/ruta12/ruta12mapa.dart';
 import 'package:xidooalpha/routes/ruta19/ruta19mapa.dart';
 import 'package:xidooalpha/routes/ruta23/ruta23mapa.dart';
+import 'package:xidooalpha/routes/ruta6/ruta6mapa.dart';
 import 'package:xidooalpha/routes/selectorutas.dart';
 import 'package:latlong2/latlong.dart';
 
@@ -191,9 +192,7 @@ class Rutas extends StatelessWidget {
                   ),
               ),
               ],
-
           )
-          
         ],
       ),
         
@@ -426,7 +425,7 @@ class Rutas extends StatelessWidget {
                         onPressed: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Selectorutas())
+                            MaterialPageRoute(builder: (context) => Ruta6mapa())
                           );
                         },
                         child: Text(
