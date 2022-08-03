@@ -5,7 +5,11 @@ import 'package:http/http.dart' as http;
 
 Future<List<Noticias>> listClient() async {
   final response =
+<<<<<<< Updated upstream
       await http.get(Uri.parse('http://192.168.0.77:5000/api/noticias'));
+=======
+      await http.get(Uri.parse('http://74.208.33.52:5000/api/noticias'));
+>>>>>>> Stashed changes
   //http://192.168.100.4:3001/api/negocios
   //http://192.168.100.4:4000/api/clientes
   print(response.body);
