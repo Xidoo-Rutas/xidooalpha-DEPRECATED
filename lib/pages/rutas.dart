@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:xidooalpha/pages/onboarding_page.dart';
 import 'package:xidooalpha/puntosMap/rut_marker10.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -214,6 +215,33 @@ class Rutas extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   fontSize: 40),
                 )
+              ),
+            ),
+          ),
+          Padding(
+          padding: EdgeInsets.fromLTRB(360, 40, 0, 0),
+          child: Container(
+            height: 40,
+            width: 50,
+            color: Colors.transparent,
+            child: new Container(
+              decoration: new BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: new BorderRadius.circular(100)
+              ),
+              child: IconButton(
+                      icon: Icon(Icons.help),
+                      color:Colors.amber,
+                      splashColor: Colors.white,
+                      highlightColor: Colors.white,
+                      iconSize: 30.0,
+                      onPressed: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => OnBoardingPage())
+                          );
+                      },
+                ),
               ),
             ),
           ),
